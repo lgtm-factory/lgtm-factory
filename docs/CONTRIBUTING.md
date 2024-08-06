@@ -54,3 +54,4 @@
 - 文字数は特に制限しませんが、20〜30文字以内が適切だと思います
   - fyi: https://twitter.com/_mono/status/1240075582164983809
 - Descriptionは必須ではありません
+- Subject,Description共に日本語で統一します
