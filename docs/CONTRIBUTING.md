@@ -1,6 +1,6 @@
 # ブランチについて
 
-## ブランチ戦略とは
+## ブランチ戦略について
 
 - LGTM Factory では、シンプルかつ柔軟なワークフローで、チーム開発の効率化を実現するため、[GitHub Flow](https://docs.github.com/ja/get-started/using-github/github-flow) を採用します。
 - main ブランチから各自ブランチを作成し、作業を開始してください。
@@ -39,7 +39,7 @@
 - Emojiは任意
 - Description（スリーライン）は任意  
 
-## Type, Emoji
+### Type, Emoji
 
 - どんなコミットなのかシュッと分かるようにPrefixとしてコミットの種別を書きます  
 - Semantic Commit Messageと同様の種別を使います  
@@ -61,7 +61,7 @@
 - test 🧪  
   - テストコードの追加や修正
 
-## Issue Number
+### Issue Number
 
 - そのコミットに紐づくIssue番号を書きます  
   - リンクになって、トラッキングがしやすいため
@@ -71,16 +71,16 @@
 
 - なお、デフォルトの設定だと#がコメント扱いになるのでこの位置に置いています
 
-##  Subject
+###  Subject
 
 - いわゆる、変更内容を書きます
-### Title
+#### Title
 - 現在形で（「◯◯した」ではなく「◯◯する」）書くこととします
   - fyi: https://minus9d.hatenablog.com/entry/2014/02/11/125222
 - 文字数は特に制限しませんが、20〜30文字以内が適切だと思います
   - fyi: https://twitter.com/_mono/status/1240075582164983809
 
-### Description
+#### Description
 
 - Descriptionは必須ではありません
 
