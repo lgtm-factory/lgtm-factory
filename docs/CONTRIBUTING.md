@@ -4,7 +4,14 @@
 
 - LGTM Factory では、シンプルかつ柔軟なワークフローで、チーム開発の効率化を実現するため、[GitHub Flow](https://docs.github.com/ja/get-started/using-github/github-flow) を採用します。
 - main ブランチから各自ブランチを作成し、作業を開始してください。
+
+## ブランチに関するコマンド
+
 - ブランチ作成時のコマンド:
+  - `git branch ブランチ名`
+- ブランチを移動するコマンド:
+  - `git switch ブランチ名`
+- ブランチ作成とブランチ移動を同時に行うコマンド:
   - `git switch -c ブランチ名`
 
 ## ブランチ名のフォーマット
