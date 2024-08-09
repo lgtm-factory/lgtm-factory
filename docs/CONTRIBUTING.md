@@ -1,4 +1,6 @@
-## ブランチ戦略について
+# ブランチについて
+
+## ブランチ戦略とは
 
 - LGTM Factory では、シンプルかつ柔軟なワークフローで、チーム開発の効率化を実現するため、[GitHub Flow](https://docs.github.com/ja/get-started/using-github/github-flow) を採用します。
 - main ブランチから各自ブランチを作成し、作業を開始してください。
@@ -25,8 +27,9 @@
     - スラッシュ (/)
 - 参考: [ブランチとタグの名前付け -GitHub Docs](https://docs.github.com/ja/get-started/using-git/dealing-with-special-characters-in-branch-and-tag-names#naming-branches-and-tags)
 
+# コミットメッセージについて
 
-# フォーマット  
+## フォーマット  
 [Semantic Commit Massage](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)を採用します
 
 - フォーマット: `<Type>: <Emoji> #<Issue Number> <Title>`
