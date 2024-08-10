@@ -1,0 +1,41 @@
+title: "【第X回】2024年XX月XX日"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Here is English only?
+  - type: textarea
+    id: index
+    attributes:
+      label: 目次
+      value: |
+        目次はトピックを立てた人が書き加えてください
+        - [トピックタイトル](URL)
+        - 結論
+    validations:
+      required: true
+  - type: textarea
+    id: next-task
+    attributes:
+      label: 次の一週間でやること
+      value: |
+        - 
+        -
+    validations:
+      required: true
+  - type: textarea
+    id: format-for-topic
+    attributes:
+      label: トピック用フォーマット
+      value: |
+        以下をコピーしてトピックを立ててください
+        ```
+        ## 概要
+
+        ## 結論
+
+        ## 関連Issues, Discussions
+        <!-- あれば書いてください -->
+        ```
+    validations:
+      required: true
