@@ -2,7 +2,7 @@
 name: 要望✨
 about: 欲しい機能などがある場合に利用してください。
 title: ''
-labels: Priority: 🔥 High
+labels: 'Priority: 🔥 High'
 assignees: ''
 
 ---
