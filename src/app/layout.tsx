@@ -4,11 +4,13 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-inter",
 });
 
 const notojp = Noto_Sans_JP({
   preload: false,
+  display: "swap",
   variable: "--font-notojp",
 });
 
