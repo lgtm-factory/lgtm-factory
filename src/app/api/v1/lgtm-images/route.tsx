@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
       throw new Error("theme is required");
     }
 
-    const { getLgtmData } = await import(`../../../../../lgtm-images/${theme}`);
+    const { getLgtmData } = await import(`../../../../../lgtm-data/${theme}`);
     const { jsx, options } = getLgtmData();
 
     return new ImageResponse(jsx, options);
