@@ -33,7 +33,7 @@ export default function RootLayout({
           <span>LGTM</span>
           <span>良さそうだね</span>
         </p>
-        <Button>Click Me</Button>
+        <Button>copy!</Button>
         {children}
       </body>
     </html>
