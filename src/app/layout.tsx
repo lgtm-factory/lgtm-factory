@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
+import Button from '../components/Button';
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -31,6 +33,7 @@ export default function RootLayout({
           <span>LGTM</span>
           <span>良さそうだね</span>
         </p>
+        <Button>Click Me</Button>
         {children}
       </body>
     </html>
