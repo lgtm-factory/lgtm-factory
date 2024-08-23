@@ -12,17 +12,32 @@ export async function GET(request: NextRequest) {
     // 今後動的な値が必要になればここに追加し、getLgtmData()にpropsとして渡す
     // const text = searchParams.get("text");
 
+    // テーマが入力されなかった場合
     if (!theme) {
-      throw new Error("theme is required");
+      const { jsx, options } = errorData({
+        errorMessage: "Theme is missing",
+      });
+      return new ImageResponse(jsx, options);
     }
 
     const { getLgtmData } = await import(`../../../../../lgtm-data/${theme}`);
+
+    // 指定されたテーマが存在しない場合
+    if (!getLgtmData) {
+      const { jsx, options } = errorData({
+        errorMessage: `Invalid theme: ${theme}`,
+      });
+      return new ImageResponse(jsx, options);
+    }
+
     const { jsx, options } = getLgtmData();
 
     return new ImageResponse(jsx, options);
   } catch (error) {
-    console.error(error);
-    const { jsx, options } = errorData();
+    // 予期せぬエラーが発生した場合
+    const { jsx, options } = errorData({
+      errorMessage: "An unexpected error occurred",
+    });
     return new ImageResponse(jsx, options);
   }
 }
