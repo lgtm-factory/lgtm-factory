@@ -20,7 +20,16 @@ export async function GET(request: NextRequest) {
       return new ImageResponse(jsx, options);
     }
 
-    const { getLgtmData } = await import(`../../../../../lgtm-data/${theme}`);
+    // テーマの読み込みに失敗した場合
+    let getLgtmData;
+    try {
+      ({ getLgtmData } = await import(`../../../../../lgtm-data/${theme}`));
+    } catch (_) {
+      const { jsx, options } = errorData({
+        errorMessage: `Failed to load theme: ${theme}`,
+      });
+      return new ImageResponse(jsx, options);
+    }
 
     // 指定されたテーマが存在しない場合
     if (!getLgtmData) {
@@ -33,7 +42,7 @@ export async function GET(request: NextRequest) {
     const { jsx, options } = getLgtmData();
 
     return new ImageResponse(jsx, options);
-  } catch (error) {
+  } catch (_) {
     // 予期せぬエラーが発生した場合
     const { jsx, options } = errorData({
       errorMessage: "An unexpected error occurred",
