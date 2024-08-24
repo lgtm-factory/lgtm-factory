@@ -121,7 +121,7 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
 上記のどちらの場合であっても、<br>
 **デザインの作成・提案の時点で、メンテナーからのフィードバックを受けることができます**！
 
-- その場合は、Issue を作成してください（[デザイン提案用 Issue テンプレート]()を使用できます！）
+- その場合は、Issue を作成してください（[デザイン提案用 Issue テンプレート](https://github.com/lgtm-factory/lgtm-factory/issues/new?assignees=&labels=Type%3A+design+LGTM+💡&projects=&template=new_lgtm_design.md&title=)を使用できます！）
 - Issue を作成することで、コーディング作業を、別のコントリビューターに割り当てる事が、可能になります
 - なので、[Issues](https://github.com/lgtm-factory/lgtm-factory/issues) に、`Type: coding LGTM ⛏️`のラベルがついた Issue があれば、コーディング作業のみを行う事もできます！
 
