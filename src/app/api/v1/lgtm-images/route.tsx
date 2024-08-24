@@ -20,23 +20,27 @@ export async function GET(request: NextRequest) {
       return new ImageResponse(jsx, { ...options, status: 400 });
     }
 
-    // テーマの読み込みに失敗した場合
     let getLgtmData;
     try {
       ({ getLgtmData } = await import(`../../../../../lgtm-data/${theme}`));
-    } catch (_) {
-      const { jsx, options } = getErrorData({
-        statusText: `Failed to load theme: ${theme}`,
-      });
-      return new ImageResponse(jsx, { ...options, status: 500 });
-    }
-
-    // 指定されたテーマが存在しない場合
-    if (!getLgtmData) {
-      const { jsx, options } = getErrorData({
-        statusText: `Invalid theme: ${theme}`,
-      });
-      return new ImageResponse(jsx, { ...options, status: 404 });
+    } catch (error: unknown) {
+      // 指定されたテーマが存在しない場合
+      if (
+        error instanceof Error &&
+        "code" in error &&
+        error.code === "MODULE_NOT_FOUND"
+      ) {
+        const { jsx, options } = getErrorData({
+          statusText: `Invalid theme: ${theme}`,
+        });
+        return new ImageResponse(jsx, { ...options, status: 404 });
+      } else {
+        // テーマの読み込みに失敗した場合
+        const { jsx, options } = getErrorData({
+          statusText: `Failed to load theme: ${theme}`,
+        });
+        return new ImageResponse(jsx, { ...options, status: 500 });
+      }
     }
 
     const { jsx, options } = getLgtmData();
