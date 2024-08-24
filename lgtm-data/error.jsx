@@ -1,4 +1,4 @@
-export const errorData = (props) => {
+export const getErrorData = (props) => {
   const options = {
     width: 1200,
     height: 630,

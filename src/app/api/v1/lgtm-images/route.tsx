@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { ImageResponse } from "next/og";
-import { errorData } from "@/lgtm-data/error";
+import { getErrorData } from "@/lgtm-data/error";
 
 export const runtime = "edge";
 
@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
 
     // テーマが入力されなかった場合
     if (!theme) {
-      const { jsx, options } = errorData({
+      const { jsx, options } = getErrorData({
         statusText: "Theme is missing",
       });
       return new ImageResponse(jsx, { ...options, status: 400 });
@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
     try {
       ({ getLgtmData } = await import(`../../../../../lgtm-data/${theme}`));
     } catch (_) {
-      const { jsx, options } = errorData({
+      const { jsx, options } = getErrorData({
         statusText: `Failed to load theme: ${theme}`,
       });
       return new ImageResponse(jsx, { ...options, status: 500 });
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
 
     // 指定されたテーマが存在しない場合
     if (!getLgtmData) {
-      const { jsx, options } = errorData({
+      const { jsx, options } = getErrorData({
         statusText: `Invalid theme: ${theme}`,
       });
       return new ImageResponse(jsx, { ...options, status: 404 });
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
     return new ImageResponse(jsx, { ...options, status: 200 });
   } catch (_) {
     // 予期せぬエラーが発生した場合
-    const { jsx, options } = errorData({
+    const { jsx, options } = getErrorData({
       statusText: "An unexpected error occurred",
     });
     return new ImageResponse(jsx, { ...options, status: 500 });
