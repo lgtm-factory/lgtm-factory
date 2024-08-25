@@ -28,8 +28,9 @@ LGTM Factory への貢献（コントリビューション）を始めるには�
   - [3.新たなファイルを作成する](#3新たなファイルを作成する)
   - [4.作成したファイルに、テンプレートを貼り付ける](#4作成したファイルにテンプレートを貼り付ける)
   - [5.変更を加え独自のデザインデータを作成する](#5変更を加え独自のデザインデータを作成する)
-    - [5.1 オプションについて](#5-1オプションについて)
-    - [5.2 JSX エレメントと動的な値について](#5-2jsx-エレメントと動的な値について)
+    - [5-1 デザイン情報について](#5-1デザイン情報について)
+    - [5.2 オプションについて](#5-2オプションについて)
+    - [5.3 JSX エレメントと動的な値について](#5-3jsx-エレメントと動的な値について)
   - [6.変更を commit & push して pull request を作成する🎉](#6変更を-commit--pushそして-pull-request-を作成する-)
 
 <br>
@@ -162,7 +163,7 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
 
 **その際、注意して欲しいポイントが、3 つあります**：
 
-1. 作成するファイルの拡張子は、`.jsx` にしてください。
+1. 作成するファイルの拡張子は、`.tsx` にしてください。
 1. ファイル名は、あなたのデザインを表す、意味のある名前をつけてください。
    - 例 1: 「design-001」は、中身のデザインが分かりにくいので、不適切だと言えます。
    - 例 2:「colorful-circle-emoji」は、デザインの中身がある程度想像できるため、適切だと言えます。
@@ -181,20 +182,33 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
 
 その際、下記のテンプレートを使用できます:
 
-⚠️⚠️⚠️ToDo: テンプレートを最新のものに更新する。引数の受け取り方も決める。オプションも決める。デフォルトのインラインスタイルと、TailwindCSS のバージョンも２つを、アコーディオンにしまう。
-
 <details>
-  <summary>テンプレート1: インラインスタイル</summary>
+  <summary>💡 テンプレート1: インラインスタイル</summary>
 
-```jsx
-export default function getLgtmData(emoji) {
-  // 下記に、作成するLGTM画像のオプションを記述します。
+```tsx
+import { GetImageResult, InputData } from "@/app/types/lgtm-data";
+
+export default function getLgtmData(inputData: InputData): GetImageResult {
+  const designInfo = {
+    author: "@username",
+    description: "デザインの簡潔な紹介文",
+    editableFields: ["emoji"],
+  };
+
   const options = {
     width: 1200,
     height: 630,
+    // you can choose:  twemoji | blobmoji | noto | openmoji.
+    emoji: "twemoji",
+    // ToDo: #108 にて、フォントに関するカスタマイズを実装する。
+    //   fonts?: {
+    //   name: string,
+    //   data: ArrayBuffer,
+    //   weight: number,
+    //   style: 'normal' | 'italic'
+    // }[]
   };
 
-  // 下記に、作成するLGTM画像をコーディングします。
   const jsx = (
     <div
       style={{
@@ -205,46 +219,76 @@ export default function getLgtmData(emoji) {
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#fff",
-        fontSize: 32,
-        fontWeight: 600,
       }}
     >
       <p
         style={{
-          fontSize: "128",
+          fontSize: 192,
         }}
       >
-        {emoji === null ? "🫠" : emoji}
+        {InputData.emoji}
       </p>
-      <div style={{ marginTop: 0 }}>Looks Good To Me</div>
+      <div
+        style={{
+          marginTop: 0,
+          fontSize: 56,
+        }}
+      >
+        Looks Good To Me
+      </div>
     </div>
   );
 
-  return { jsx, options };
+  return {
+    designInfo,
+    jsx,
+    options,
+  };
 }
 ```
 
 </details>
 
 <details>
-  <summary>テンプレート2: Tailwind CSSによるスタイリング</summary>
+  <summary>💡 テンプレート2: Tailwind CSSによるスタイリング</summary>
 
-```jsx
-export default function getLgtmData (emoji) {
+```tsx
+import { GetImageResult, InputData } from "@/app/types/lgtm-data";
 
-  // 下記に、作成するLGTM画像のオプションを記述します。
+export default function getLgtmData(inputData: InputData): GetImageResult {
+  const designInfo = {
+    author: "@username",
+    description: "デザインの簡潔な紹介文",
+    editableFields: ["emoji"],
+  };
+
   const options = {
     width: 1200,
     height: 630,
+    // you can choose:  twemoji | blobmoji | noto | openmoji.
+    emoji: "twemoji",
+    // ToDo: #108 にて、フォントに関するカスタマイズを実装する。
+    //   fonts?: {
+    //   name: string,
+    //   data: ArrayBuffer,
+    //   weight: number,
+    //   style: 'normal' | 'italic'
+    // }[]
   };
 
-  // 下記に、作成するLGTM画像をコーディングします。
   const jsx = (
-    //
+    <div tw="flex h-full w-full flex-col items-center justify-center bg-white">
+      <p tw="text-[192px]">{inpiutData.emoji}</p>
+      <div tw="m-0 text-5xl">Looks Good To Me</div>
+    </div>
   );
 
-  return { jsx, options };
-};
+  return {
+    designInfo,
+    jsx,
+    options,
+  };
+}
 ```
 
 </details>
@@ -261,14 +305,18 @@ export default function getLgtmData (emoji) {
 
 ```jsx
 function getLgtmData() {
-  // 下記に、作成するLGTM画像のオプションを記述します。
+  // Webサイト上に表示する、デザインの情報を記述します。
+  const designInfo = {
+    ~~
+  };
+  // LGTM 画像を生成する際のオプションを記述します。
   const options = {
-    //
+    ~~
   };
 
-  // 下記に、作成するLGTM画像をコーディングします。
+  // 作成する LGTM 画像をコーディングします。
   const jsx = {
-    //
+    ~~
   };
 
   return { jsx, options };
@@ -276,14 +324,22 @@ function getLgtmData() {
 ```
 
 見てわかる通り、<br>
-**JSX エレメントと、オプションを返す関数が作成されています**！
+変更を加えるのは、以下の3つです：
 
-なので、変更を加えるのは、以下の２つです：
-
+- Webサイト上に表示するデザイン情報
 - オプション
 - JSX エレメント
 
-#### 5-1.**オプションについて**
+#### 5-1.デザイン情報について
+
+- 現在、使用可能なデザイン情報は以下の通りです：
+  - author: デザインの作者のGitHubアカウント
+  - description: デザインの簡潔な紹介文
+  - editableFields: 編集可能なフィールド（複数可）
+    - 具体的には、`{inpiutData.emoji}`のように、記載することで、動的な値を受け取れます。
+    - 編集可能な値の種類に関しては、コード上に表示されます。
+
+#### 5-2.オプションについて
 
 - 現在、使用可能なオプションは、以下の通りです
   - 画像のサイズ：横幅`width`と、高さ`height`
@@ -304,13 +360,29 @@ function getLgtmData() {
   ```
 - テキストのフォントの種類については、⚠️⚠️⚠️ToDo: フォントの扱い方を決め、追記する。
 
-#### 5-2.**JSX エレメントと、動的な値について**
+#### 5-3.JSX エレメントと、動的な値について
 
 そして、実際に HTML, CSS などのコードを書いていきます。
 
-⚠️⚠️⚠️ToDo: 動的な値（引数）の扱い方を決め、追記する。
+その際、以下のことに注意してください：
 
-その際、以下のコマンドを使用して、ローカル環境でサーバーを立ち上げることができます:
+- TailwindCSS と使用する場合、以下のように、本来なら`className`と書く箇所を、`tw`に変更する必要があります。
+  ```jsx
+  <p tw="text-lg">LGTM</p>
+  ```
+- 動的な値は、`{inpiutData.emoji}`のように記載することで、使用可能です。
+- 使用可能な動的な値の種類に関しては、コード上に表示されます。（テンプレ内の`InputData`型を参照）
+
+また、コーディング中には、<br>
+実際にWeb上で画像の表示を確認しながら、作業することをお勧めします。
+
+- その際、以下のコマンドを使用して、ローカル環境でサーバーを立ち上げることができます:
+
+```zsh
+npm run dev
+```
+
+もしくは、
 
 ```zsh
 npm run preview
@@ -325,8 +397,8 @@ npm run preview
 そしたら、最後に下記３点を確認してください：
 
 - getLgtmData 関数を、デフォルトエクスポートしていること
-- getLgtmData 関数の戻り値は、オプションと JSX エレメントの 2 つあること
-- `npm run preview`でローカルサーバーを立ち上げ、問題なく画像が表示されていること
+- getLgtmData 関数の戻り値が、３つあること（デザイン情報、オプション、JSX エレメント）
+- ローカル環境でサーバーを立ち上げ、問題なく画像が表示されていること
 
 もちろん、**作業途中であっても、Pull Request を作成することで、メンテナーからのアドバイスを受けることができます！**
 
