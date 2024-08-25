@@ -64,6 +64,7 @@
     @apply border-border;
   }
   body {
+    font-family: var(--font-inter), var(--font-notojp);
     @apply bg-background text-foreground;
   }
 }
