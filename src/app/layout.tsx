@@ -1,18 +1,26 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_JP } from "next/font/google";
+import { IBM_Plex_Mono, Noto_Sans_JP, Monoton } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/shadcn-utils";
 
-
-const inter = Inter({
+const ibmMono = IBM_Plex_Mono({
+  weight: ["100", "200", "300", "400", "500", "600", "700"], // thinからboldまで指定可能
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-ibmMono",
 });
 
 const notojp = Noto_Sans_JP({
   preload: false,
   display: "swap",
   variable: "--font-notojp",
+});
+
+const monoton = Monoton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-monoton",
 });
 
 export const metadata: Metadata = {
@@ -27,10 +35,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${inter.variable} ${notojp.variable}`}>
+      <body
+        className={cn(
+          ibmMono.variable,
+          notojp.variable,
+          monoton.variable,
+          "font-sans text-foreground",
+        )}
+      >
         <p className="text-4xl">
-          <span>LGTM</span>
-          <span>良さそうだね</span>
+          <span className="font-monoton text-accent">LGTM Factory</span>
+          <span className="font-thin">LGTM良さそうだね</span>
+          <span className="font-bold">LGTM良さそうだね</span>
         </p>
         {children}
       </body>
