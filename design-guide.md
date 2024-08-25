@@ -198,7 +198,6 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
   const options = {
     width: 1200,
     height: 630,
-    // you can choose:  twemoji | blobmoji | noto | openmoji.
     emoji: "twemoji",
     // ToDo: #108 にて、フォントに関するカスタマイズを実装する。
     //   fonts?: {
@@ -265,7 +264,6 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
   const options = {
     width: 1200,
     height: 630,
-    // you can choose:  twemoji | blobmoji | noto | openmoji.
     emoji: "twemoji",
     // ToDo: #108 にて、フォントに関するカスタマイズを実装する。
     //   fonts?: {
@@ -319,7 +317,7 @@ function getLgtmData() {
     ~~
   };
 
-  return { jsx, options };
+  return { designInfo, jsx, options };
 }
 ```
 
@@ -362,7 +360,7 @@ function getLgtmData() {
 
 #### 5-3.JSX エレメントと、動的な値について
 
-そして、実際に HTML, CSS などのコードを書いていきます。
+そして、実際に HTML, CSS などのコードを書いていきます！
 
 その際、以下のことに注意してください：
 
@@ -377,16 +375,13 @@ function getLgtmData() {
 実際にWeb上で画像の表示を確認しながら、作業することをお勧めします。
 
 - その際、以下のコマンドを使用して、ローカル環境でサーバーを立ち上げることができます:
-
-```zsh
-npm run dev
-```
-
-もしくは、
-
-```zsh
-npm run preview
-```
+  ```zsh
+  npm run dev
+  ```
+- もしくは、
+  ```zsh
+  npm run preview
+  ```
 
 ---
 
@@ -397,7 +392,7 @@ npm run preview
 そしたら、最後に下記３点を確認してください：
 
 - getLgtmData 関数を、デフォルトエクスポートしていること
-- getLgtmData 関数の戻り値が、３つあること（デザイン情報、オプション、JSX エレメント）
+- getLgtmData 関数の戻り値が、３つあること（デザイン情報、オプション、JSX、エレメント）
 - ローカル環境でサーバーを立ち上げ、問題なく画像が表示されていること
 
 もちろん、**作業途中であっても、Pull Request を作成することで、メンテナーからのアドバイスを受けることができます！**
