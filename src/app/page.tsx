@@ -1,5 +1,7 @@
 "use client";
 import { Button } from "@/components/shadcn-ui/button";
+import Image from "next/image";
+import logoImage from "@/assets/logo.svg";
 
 export default function Home() {
   function copy(copyText: string) {
@@ -17,6 +19,57 @@ export default function Home() {
           download
         </a>
       </Button>
+      <div className="text-4xl">
+        <Image src={logoImage} width={180} alt="logo image" />
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-monoton text-accent">LGTM Factory</p>
+        <p className="font-thin">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p>
+      </div>
     </main>
   );
 }
