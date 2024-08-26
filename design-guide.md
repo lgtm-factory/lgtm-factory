@@ -401,7 +401,7 @@ function getLgtmData() {
 1. 変更をコミットする。
    ```
    git add .
-   git commit -m "theme: ⛑️ add design theme <new-file>"
+   git commit -m "theme: 📦 add design theme <new-file>"
    ```
 1. 変更をリポートリポジトリに、プッシュする
    ```
