@@ -1,3 +1,5 @@
+import { ImageResponseOptions } from "next/server";
+
 export type InputData = {
   emoji: string;
   text: string;
@@ -13,17 +15,7 @@ export type DesignInfo = {
 export type GetLgtmDataResult = {
   designInfo: DesignInfo;
   element: JSX.Element;
-  options: {
-    width?: number;
-    height?: number;
-    emoji?: "twemoji" | "blobmoji" | "noto" | "openmoji";
-    fonts?: {
-      name: string;
-      data: ArrayBuffer;
-      weight: number;
-      style: "normal" | "italic";
-    }[];
-  };
+  options: ImageResponseOptions;
 };
 
-export type GetLgtmData = (inputData: InputData) => Promise<GetLgtmDataResult>;
+export type GetLgtmData = (inputData: InputData) => GetLgtmDataResult;
