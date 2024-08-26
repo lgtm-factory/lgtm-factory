@@ -186,9 +186,9 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
   <summary>💡 テンプレート1: インラインスタイル</summary>
 
 ```tsx
-import { GetImageResult, InputData } from "@/app/types/lgtm-data";
+import { GetLgtmDataResult, InputData } from "@/app/types/lgtm-data";
 
-export default function getLgtmData(inputData: InputData): GetImageResult {
+export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
   const designInfo = {
     author: "@username",
     description: "デザインの簡潔な紹介文",
@@ -208,7 +208,7 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
     // }[]
   };
 
-  const jsx = (
+  const element = (
     <div
       style={{
         height: "100%",
@@ -240,7 +240,7 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
 
   return {
     designInfo,
-    jsx,
+    element,
     options,
   };
 }
@@ -252,9 +252,9 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
   <summary>💡 テンプレート2: Tailwind CSSによるスタイリング</summary>
 
 ```tsx
-import { GetImageResult, InputData } from "@/app/types/lgtm-data";
+import { GetLgtmDataResult, InputData } from "@/app/types/lgtm-data";
 
-export default function getLgtmData(inputData: InputData): GetImageResult {
+export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
   const designInfo = {
     author: "@username",
     description: "デザインの簡潔な紹介文",
@@ -274,7 +274,7 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
     // }[]
   };
 
-  const jsx = (
+  const element = (
     <div tw="flex h-full w-full flex-col items-center justify-center bg-white">
       <p tw="text-[192px]">{inputData.emoji}</p>
       <div tw="m-0 text-5xl">Looks Good To Me</div>
@@ -283,7 +283,7 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
 
   return {
     designInfo,
-    jsx,
+    element,
     options,
   };
 }
@@ -301,7 +301,7 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
 前のステップで貼り付けた、<br>
 テンプレートのコードの部分は、簡略化すると以下のようになります：
 
-```jsx
+```tsx
 function getLgtmData() {
   // Webサイト上に表示する、デザインの情報を記述します。
   const designInfo = {
@@ -317,7 +317,7 @@ function getLgtmData() {
     ~~
   };
 
-  return { designInfo, jsx, options };
+  return { designInfo, element, options };
 }
 ```
 
@@ -325,11 +325,12 @@ function getLgtmData() {
 
 1. designInfo: Webサイト上に表示するデザイン情報
 1. options: オプション
-1. jsx: JSX エレメント
+1. element: JSX エレメント
 
 #### 5-1.デザイン情報について
 
 必要なデザイン情報は、以下の通りです：
+
 - author: デザインの作者のGitHubアカウント
 - description: デザインの簡潔な紹介文
 - editableFields: ユーザーが編集可能なフィールド（複数可）
