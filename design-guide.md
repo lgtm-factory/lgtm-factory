@@ -159,7 +159,7 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
 次に、追加するデザインの内容を記載するファイルを作成します！
 
 以下のようなファイルを、新たに作成するだけです 👍<br>
-例：`colorful-circle-emoji.jsx`
+例：`colorful-circle-emoji.tsx`
 
 **その際、注意して欲しいポイントが、3 つあります**：
 
@@ -180,7 +180,7 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
 
 前のステップで作成したファイルに、これからデザインのコードを追加していきます！
 
-その際、下記のテンプレートを使用できます:
+**その際、CSS の記述方法に応じて、下記のテンプレートを使用できます**:
 
 <details>
   <summary>💡 テンプレート1: インラインスタイル</summary>
@@ -225,7 +225,7 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
           fontSize: 192,
         }}
       >
-        {InputData.emoji}
+        {inputData.emoji}
       </p>
       <div
         style={{
@@ -276,7 +276,7 @@ export default function getLgtmData(inputData: InputData): GetImageResult {
 
   const jsx = (
     <div tw="flex h-full w-full flex-col items-center justify-center bg-white">
-      <p tw="text-[192px]">{inpiutData.emoji}</p>
+      <p tw="text-[192px]">{inputData.emoji}</p>
       <div tw="m-0 text-5xl">Looks Good To Me</div>
     </div>
   );
@@ -321,21 +321,20 @@ function getLgtmData() {
 }
 ```
 
-見てわかる通り、<br>
-変更を加えるのは、以下の3つです：
+なので、**実際に変更を加えるのは、以下の3つです**：
 
-- Webサイト上に表示するデザイン情報
-- オプション
-- JSX エレメント
+1. designInfo: Webサイト上に表示するデザイン情報
+1. options: オプション
+1. jsx: JSX エレメント
 
 #### 5-1.デザイン情報について
 
-- 現在、使用可能なデザイン情報は以下の通りです：
-  - author: デザインの作者のGitHubアカウント
-  - description: デザインの簡潔な紹介文
-  - editableFields: 編集可能なフィールド（複数可）
-    - 具体的には、`{inpiutData.emoji}`のように、記載することで、動的な値を受け取れます。
-    - 編集可能な値の種類に関しては、コード上に表示されます。
+必要なデザイン情報は、以下の通りです：
+- author: デザインの作者のGitHubアカウント
+- description: デザインの簡潔な紹介文
+- editableFields: ユーザーが編集可能なフィールド（複数可）
+  - 具体的には、`{inputData.emoji}`のように、記載することで、動的な値を受け取れます。
+  - 編集可能な値の種類に関しては、コード上に表示されます。
 
 #### 5-2.オプションについて
 
@@ -360,19 +359,18 @@ function getLgtmData() {
 
 #### 5-3.JSX エレメントと、動的な値について
 
-そして、実際に HTML, CSS などのコードを書いていきます！
+デザインが決まったら、 HTML, CSS のコードを書いていきます！
 
 その際、以下のことに注意してください：
 
-- TailwindCSS と使用する場合、以下のように、本来なら`className`と書く箇所を、`tw`に変更する必要があります。
+- TailwindCSS を使用する場合、以下のように、本来なら`className`と書く箇所を、`tw`に変更する必要があります。
   ```jsx
   <p tw="text-lg">LGTM</p>
   ```
-- 動的な値は、`{inpiutData.emoji}`のように記載することで、使用可能です。
+- 動的な値は、`{inputData.emoji}`のように記載することで、使用可能です。
 - 使用可能な動的な値の種類に関しては、コード上に表示されます。（テンプレ内の`InputData`型を参照）
 
-また、コーディング中には、<br>
-実際にWeb上で画像の表示を確認しながら、作業することをお勧めします。
+また、**コーディング中は、実際にWeb上で画像の表示を確認しながら、作業することをお勧めします。**
 
 - その際、以下のコマンドを使用して、ローカル環境でサーバーを立ち上げることができます:
   ```zsh
@@ -392,7 +390,7 @@ function getLgtmData() {
 そしたら、最後に下記３点を確認してください：
 
 - getLgtmData 関数を、デフォルトエクスポートしていること
-- getLgtmData 関数の戻り値が、３つあること（デザイン情報、オプション、JSX、エレメント）
+- getLgtmData 関数の戻り値が、３つあること（デザイン情報、オプション、JSXエレメント）
 - ローカル環境でサーバーを立ち上げ、問題なく画像が表示されていること
 
 もちろん、**作業途中であっても、Pull Request を作成することで、メンテナーからのアドバイスを受けることができます！**
