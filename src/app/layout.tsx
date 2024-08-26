@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Noto_Sans_JP, Monoton } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/shadcn-utils";
+import Image from "next/image";
+import bgImage from "@/assets/bg-image.png";
 
 const ibmMono = IBM_Plex_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700"], // thinからboldまで指定可能
@@ -40,14 +42,19 @@ export default function RootLayout({
           ibmMono.variable,
           notojp.variable,
           monoton.variable,
-          "font-sans text-foreground",
+          "relative h-screen font-sans text-foreground",
         )}
       >
-        <p className="text-4xl">
-          <span className="font-monoton text-accent">LGTM Factory</span>
-          <span className="font-thin">LGTM良さそうだね</span>
-          <span className="font-bold">LGTM良さそうだね</span>
-        </p>
+        <div className="fixed inset-0 -z-10">
+          <Image
+            src={bgImage}
+            alt="background image"
+            fill
+            quality={100}
+            placeholder="blur"
+            className="object-cover"
+          />
+        </div>
         {children}
       </body>
     </html>
