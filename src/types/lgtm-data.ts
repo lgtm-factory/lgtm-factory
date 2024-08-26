@@ -10,9 +10,9 @@ export type DesignInfo = {
   editableFields: string[];
 };
 
-export type GetImageResult = {
+export type GetLgtmDataResult = {
   designInfo: DesignInfo;
-  jsx: JSX.Element;
+  element: JSX.Element;
   options: {
     width?: number;
     height?: number;
@@ -26,4 +26,4 @@ export type GetImageResult = {
   };
 };
 
-export type GetImage = (inputData: InputData) => Promise<GetImageResult>;
+export type GetLgtmData = (inputData: InputData) => Promise<GetLgtmDataResult>;
