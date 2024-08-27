@@ -186,7 +186,7 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
   <summary>💡 テンプレート1: インラインスタイル</summary>
 
 ```tsx
-import { GetLgtmDataResult, InputData } from "@/app/types/lgtm-data";
+import { GetLgtmDataResult, InputData } from "@/types/lgtm-data";
 
 export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
   const designInfo = {
@@ -252,7 +252,7 @@ export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
   <summary>💡 テンプレート2: Tailwind CSSによるスタイリング</summary>
 
 ```tsx
-import { GetLgtmDataResult, InputData } from "@/app/types/lgtm-data";
+import { GetLgtmDataResult, InputData } from "@/types/lgtm-data";
 
 export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
   const designInfo = {
@@ -401,7 +401,7 @@ function getLgtmData() {
 1. 変更をコミットする。
    ```
    git add .
-   git commit -m "theme: ⛑️ add design theme <new-file>"
+   git commit -m "theme: 📦 add design theme <new-file>"
    ```
 1. 変更をリポートリポジトリに、プッシュする
    ```
