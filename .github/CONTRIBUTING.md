@@ -156,3 +156,71 @@
 ```
 
 - Title,Description共に日本語で統一します
+
+# スタイリングについて
+
+## 使用カラー
+
+- テキストカラー
+  - Tailwind: `zinc-700`
+  - カラーコード: `#3f3f46`
+- アクセントカラー
+  - Tailwind: `amber-300`
+  - カラーコード: `#fcd34d`
+- ホワイトカラー
+
+  - Tailwind: `white`
+  - カラーコード: `#ffffff`
+
+- 参考：[Tailwind Color](https://tailwindcss.com/docs/customizing-colors)
+
+### 設定箇所
+
+- src/app/globals.css
+  - 2024/8/27現在、テキストカラーとアクセントカラーのみ設定済み
+  - 実装中に、カラーの変数の設定が必要になれば、追加で設定してください
+  - その際は、設定済みの箇所を明確にするため、`/* amber-300 */`などと記述してください（設定済み箇所を参考にしてください）
+
+### 使用方法
+
+- 使用例
+
+  - テキストカラー
+    ```
+    <p className="text-foreground">LGTM</p>
+    ```
+  - アクセントカラー
+    ```
+    <div className="bg-accent">LGTM</div>
+    ```
+
+## 使用フォント
+
+- 欧文
+  - IBM Plex Mono
+  - https://fonts.google.com/specimen/IBM+Plex+Mono
+- 和文
+  - Noto Sans JP
+  - https://fonts.google.com/noto/specimen/Noto+Sans+JP
+- タイトル
+  - Monoton
+  - https://fonts.google.com/specimen/Monoton
+
+### 設定箇所
+
+- src/app/layout.ts
+  - next/fontでGoogle Fontsをインポート, 設定
+- tailwind.config.ts
+  - shadcn/uiのdocsに則ってCSS変数を設定
+
+### 使用方法
+
+- 欧文, 和文
+  - 上記設定により、自動的に欧文と和文はカスタムフォントに変換されます
+- タイトル
+
+  - 使用例
+
+    ```
+    <p className="font-monoton">LGTM</p>
+    ```
