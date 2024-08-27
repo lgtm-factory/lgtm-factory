@@ -19,7 +19,7 @@ function HeaderButton({ children }: { children: React.ReactNode }) {
 
 export default function Header() {
   return (
-    <header className="fixed flex h-20 w-full items-center justify-between px-8 text-lg font-medium">
+    <header className="sticky left-0 top-0 z-50 flex h-20 w-full items-center justify-between px-8 text-lg font-medium">
       <HeaderButton>
         <Link href="/">
           <Image

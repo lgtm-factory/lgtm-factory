@@ -44,7 +44,7 @@ export default function RootLayout({
           ibmMono.variable,
           notojp.variable,
           monoton.variable,
-          "relative h-screen font-sans text-foreground",
+          "relative font-sans text-foreground",
         )}
       >
         <div className="fixed inset-0 -z-10">
