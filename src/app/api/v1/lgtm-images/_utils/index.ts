@@ -3,6 +3,7 @@ import { NextRequest } from "next/server";
 import { ERRORS } from "../_constants";
 import { ImageResponse } from "next/og";
 import { GetLgtmData, InputData } from "@/types/lgtm-data";
+import { inputDataSchema } from "../_schemas";
 
 export function getSearchParams(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -16,6 +17,14 @@ export function getSearchParams(request: NextRequest) {
 
 export function handleMissingTheme(inputData: InputData) {
   return createErrorResponse(inputData, ERRORS.THEME_MISSING, 400);
+}
+
+export function validateInputData(inputData: InputData) {
+  return inputDataSchema.safeParse(inputData);
+}
+
+export function handleValidationError(inputData: InputData) {
+  return createErrorResponse(inputData, ERRORS.INVALID_INPUT_DATA, 400);
 }
 
 export async function importLgtmDataModule(

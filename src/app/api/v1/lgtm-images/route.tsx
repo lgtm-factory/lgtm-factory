@@ -6,6 +6,8 @@ import {
   getSearchParams,
   handleMissingTheme,
   handleError,
+  validateInputData,
+  handleValidationError,
 } from "./_utils";
 
 export const runtime = "edge";
@@ -22,6 +24,11 @@ export async function GET(request: NextRequest) {
   // テーマが入力されなかった場合
   if (!theme) {
     return handleMissingTheme(inputData);
+  }
+
+  const validationResult = validateInputData(inputData);
+  if (!validationResult.success) {
+    return handleValidationError(inputData);
   }
 
   try {
