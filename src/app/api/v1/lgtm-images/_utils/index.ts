@@ -15,11 +15,7 @@ export function getSearchParams(request: NextRequest) {
 }
 
 export function handleMissingTheme(inputData: InputData) {
-  const { element, options } = getErrorData({
-    ...inputData,
-    text: ERRORS.THEME_MISSING,
-  });
-  return new ImageResponse(element, { ...options, status: 400 });
+  return createErrorResponse(inputData, ERRORS.THEME_MISSING, 400);
 }
 
 export async function importLgtmDataModule(
@@ -60,7 +56,7 @@ export function handleError(
   return createErrorResponse(inputData, ERRORS.UNEXPECTED, 500);
 }
 
-export function createErrorResponse(
+function createErrorResponse(
   inputData: InputData,
   text: string,
   status: number,
