@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![](https://lgtm-factory.pages.dev/api/v1/lgtm-images?theme=simple-emoji-browser.tsx)
 
-## Getting Started
+<p align="left">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat" alt="Static Badge">
+  <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love">
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT">
+  <img src="https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat" alt="Contributions Welcome">
+  <img src="https://img.shields.io/badge/first_contributions-%F0%9F%94%B0-white?style=flat" alt="Static Badge">
+</p>
 
-First, run the development server:
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)][twttr-share]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> キャッチコピー
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+概要
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+一言 ✌️
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<br>
 
-## Learn More
+## はじめに
 
-To learn more about Next.js, take a look at the following resources:
+このプロジェクトは、
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### これは誰のためのものですか？
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- あああ
 
-## Deploy on Vercel
+### このプロジェクトの目的は？
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- あああ
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br>
+
+## 特徴・価値提供
+
+### 類似との比較
+
+### FAQ
+
+## 使用スタック
+
+
+<br>
+
+## Contributing
+
+- デザイン追加＆コーディング
+- イシューを立てる
+- イシューに着手
+
+### Issues
+
+- イシュー
+    - バグ
+    - 機能提案・フィードバック
+
+LGTM Factory にコントリビュート？まずは、[Issues](https://github.com/lgtm-factory/lgtm-factory/issues)で、`good first issue`ラベルを探してください 🔍
+
+Issue に取り組む際は、[貢献ガイドライン](./docs/CONTRIBUTING.md)を参照してください！<br>
+コードの追加やバグの修正、ドキュメントの改善など、どんな些細な貢献も大歓迎です 🤝
+
+## License
+
+LGTM Factory は、[MIT LICENSE](/LICENSE)の下でライセンスされたオープンソースプロジェクトです。
+
+## Acknowledgements
+
+このプロジェクトは、[Shields.io](https://github.com/badges/shields)や、`@vercel/og`の[ImageResponse](https://nextjs.org/docs/app/api-reference/functions/image-response)<br>
+そして、多くの素晴らしい LGTM 画像共有サービスから影響を受けています。
