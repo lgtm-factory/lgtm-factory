@@ -1,28 +1,28 @@
 type GoogleFontUrl = `https://fonts.googleapis.com/css2${string}`;
 
-const fetchFontCss = async (url: GoogleFontUrl): Promise<string> => {
+async function fetchFontCss(url: GoogleFontUrl): Promise<string> {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to fetch CSS: ${response.statusText}`);
   }
   return response.text();
-};
+}
 
-const parseFontFileUrlFromCss = (cssText: string): string => {
+function parseFontFileUrlFromCss(cssText: string): string {
   const urlMatch = cssText.match(/url\((.*?)\)/);
   if (!urlMatch) {
     throw new Error("Font file URL not found in CSS");
   }
   return urlMatch[1];
-};
+}
 
-const fetchFontFileData = async (url: string): Promise<ArrayBuffer> => {
+async function fetchFontFileData(url: string): Promise<ArrayBuffer> {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to fetch font file data: ${response.statusText}`);
   }
   return response.arrayBuffer();
-};
+}
 
 /**
  * Google Fontsからフォントデータを取得し処理します。
@@ -37,7 +37,7 @@ const fetchFontFileData = async (url: string): Promise<ArrayBuffer> => {
  *         - CSSからフォントファイルURLの抽出の失敗
  *         - フォントファイルデータの取得の失敗
  */
-export const getFontData = async (url: GoogleFontUrl): Promise<ArrayBuffer> => {
+async function getFontData(url: GoogleFontUrl): Promise<ArrayBuffer> {
   try {
     const cssText = await fetchFontCss(url);
     const fontFileUrl = parseFontFileUrlFromCss(cssText);
@@ -47,6 +47,6 @@ export const getFontData = async (url: GoogleFontUrl): Promise<ArrayBuffer> => {
       `Error fetching font data: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
-};
+}
 
 export default getFontData;
