@@ -188,7 +188,7 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
 ```tsx
 import { GetLgtmDataResult, InputData } from "@/types/lgtm-data";
 
-export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
+async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
     author: "@username",
     description: "デザインの簡潔な紹介文",
@@ -199,13 +199,6 @@ export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
     width: 1200,
     height: 630,
     emoji: "twemoji",
-    // ToDo: #108 にて、フォントに関するカスタマイズを実装する。
-    //   fonts?: {
-    //   name: string,
-    //   data: ArrayBuffer,
-    //   weight: number,
-    //   style: 'normal' | 'italic'
-    // }[]
   };
 
   const element = (
@@ -244,6 +237,8 @@ export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
     options,
   };
 }
+
+export default getLgtmData;
 ```
 
 </details>
@@ -254,7 +249,7 @@ export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
 ```tsx
 import { GetLgtmDataResult, InputData } from "@/types/lgtm-data";
 
-export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
+async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
     author: "@username",
     description: "デザインの簡潔な紹介文",
@@ -265,13 +260,6 @@ export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
     width: 1200,
     height: 630,
     emoji: "twemoji",
-    // ToDo: #108 にて、フォントに関するカスタマイズを実装する。
-    //   fonts?: {
-    //   name: string,
-    //   data: ArrayBuffer,
-    //   weight: number,
-    //   style: 'normal' | 'italic'
-    // }[]
   };
 
   const element = (
@@ -287,6 +275,8 @@ export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
     options,
   };
 }
+
+export default getLgtmData;
 ```
 
 </details>
@@ -323,13 +313,13 @@ function getLgtmData() {
 
 なので、**実際に変更を加えるのは、以下の3つです**：
 
-1. designInfo: Webサイト上に表示するデザイン情報
-1. options: オプション
-1. element: JSX エレメント
+1. **designInfo**: Webサイト上に表示するデザイン情報
+1. **options**: オプション
+1. **element**: JSX エレメント
 
 #### 5-1.デザイン情報について
 
-必要なデザイン情報は、以下の通りです：
+Webサイト上に掲載するため、必要なデザイン情報は、以下の通りです：
 
 - author: デザインの作者のGitHubアカウント
 - description: デザインの簡潔な紹介文
@@ -339,7 +329,9 @@ function getLgtmData() {
 
 #### 5-2.オプションについて
 
-- 現在、使用可能なオプションは、以下の通りです
+画像を生成する際に必要な、オプションを記述します！
+
+- 使用可能なオプションは、以下の通りです
   - 画像のサイズ：横幅`width`と、高さ`height`
   - 絵文字フォントの種類：`emoji`
   - テキストのフォントの種類: `fonts`
@@ -356,7 +348,38 @@ function getLgtmData() {
      style: 'normal' | 'italic'
   }
   ```
-- テキストのフォントの種類については、⚠️⚠️⚠️ToDo: フォントの扱い方を決め、追記する。
+
+**テキストのフォントの種類について**:
+
+- テキストのフォントの種類は、現在`Google Fonts` のみをサポートしています。
+- [Google Fonts](https://fonts.google.com)のサイト上から、お好みのフォントの URL を貼り付けることで、設定可能です。
+- 下記が、フォントを指定する実際のコード例です：
+
+  ```jsx
+  import getFontData from "@/utils/google-font";
+
+  ~~
+
+  fonts: [
+      {
+        name: "Inter",
+        data: await getFontData("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700"),
+      },
+    ],
+  ```
+
+- 🚨注意：
+  - `import getFontData from "@/utils/google-font";`で、フォント取得用の関数をインポートしてください。
+  - `Google Fonts` のURLを取得する手順は、以下の通りです
+    1. [Google Fonts](https://fonts.google.com)のサイト上から、お好きなフォントを選び、太さ（weight）を選択する
+    2. 「Get embed code」ボタンをクリックし、フォントのURLをコピー：`https://fonts.googleapis.com/css2?family=Caveat:wght@700`
+       <img width="443" alt="スクリーンショット 2024-08-28 1 10 10" src="https://github.com/user-attachments/assets/f9b82d80-9108-4c0c-b1d5-b251909c14cf">
+    3. `https://fonts.googleapis.com/css2`から始まる、フォントのURLをコピー（**`Italic`や`Weight`は指定してください**）
+    4. ファイル内でインポートした、`getFontData()`の引数に渡す
+
+> [!IMPORTANT]
+> このテキストのフォントのカスタマイズについては、検証中の機能です。
+> 問題点やフィードバックがあれば、ぜひ[Issues](https://github.com/lgtm-factory/lgtm-factory/issues) から報告してください🤝
 
 #### 5-3.JSX エレメントと、動的な値について
 
