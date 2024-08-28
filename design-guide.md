@@ -325,16 +325,16 @@ Webサイト上に掲載するため、必要なデザイン情報は、以下�
 - description: デザインの簡潔な紹介文
 - editableFields: ユーザーが編集可能なフィールド（複数可）
   - 具体的には、`{inputData.emoji}`のように、記載することで、動的な値を受け取れます。
-  - 編集可能な値の種類に関しては、コード上に表示されます。
+  - 編集可能な値の種類に関しては、コード上に表示されます 💻
 
 #### 5-2.オプションについて
 
 画像を生成する際に必要な、オプションを記述します！
 
 - 使用可能なオプションは、以下の通りです
-  - 画像のサイズ：横幅`width`と、高さ`height`
-  - 絵文字フォントの種類：`emoji`
-  - テキストのフォントの種類: `fonts`
+  - **画像のサイズ**：横幅`width`と、高さ`height`
+  - **絵文字フォントの種類**：`emoji`
+  - **テキストのフォントの種類**: `fonts`
 - 実際のコードでは、以下のようにオプションを記述できます
   ```jsx
   options: {
@@ -348,18 +348,14 @@ Webサイト上に掲載するため、必要なデザイン情報は、以下�
      style: 'normal' | 'italic'
   }
   ```
-
+  
 **テキストのフォントの種類について**:
 
 - テキストのフォントの種類は、現在`Google Fonts` のみをサポートしています。
-- [Google Fonts](https://fonts.google.com)のサイト上から、お好みのフォントの URL を貼り付けることで、設定可能です。
 - 下記が、フォントを指定する実際のコード例です：
-
   ```jsx
   import getFontData from "@/utils/google-font";
-
   ~~
-
   fonts: [
       {
         name: "Inter",
@@ -367,18 +363,17 @@ Webサイト上に掲載するため、必要なデザイン情報は、以下�
       },
     ],
   ```
-
-- 🚨注意：
-  - `import getFontData from "@/utils/google-font";`で、フォント取得用の関数をインポートしてください。
-  - `Google Fonts` のURLを取得する手順は、以下の通りです
-    1. [Google Fonts](https://fonts.google.com)のサイト上から、お好きなフォントを選び、太さ（weight）を選択する
-    2. 「Get embed code」ボタンをクリックし、フォントのURLをコピー：`https://fonts.googleapis.com/css2?family=Caveat:wght@700`
-       <img width="443" alt="スクリーンショット 2024-08-28 1 10 10" src="https://github.com/user-attachments/assets/f9b82d80-9108-4c0c-b1d5-b251909c14cf">
-    3. `https://fonts.googleapis.com/css2`から始まる、フォントのURLをコピー（**`Italic`や`Weight`は指定してください**）
-    4. ファイル内でインポートした、`getFontData()`の引数に渡す
+- `Google Fonts` のURLを取得する手順は、次の通りです：
+1. [Google Fonts](https://fonts.google.com)のサイト上から、お好きなフォントを選び、太さ（weight）を選択する
+2. 「**Get embed code**」ボタンをクリック
+3. `https://fonts.googleapis.com/css2`から始まる、フォントのURLをコピー
+    - **`Italic`や`Weight`は、Google Fonts のサイト上で指定してください**
+    - 例：`https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700`
+4. ファイル内でインポートした、`getFontData()`の引数に渡す
+    - 🚨注意：`import getFontData from "@/utils/google-font";`で、フォント取得用の関数をインポートしてください。
 
 > [!IMPORTANT]
-> このテキストのフォントのカスタマイズについては、検証中の機能です。
+> このテキストのフォントのカスタマイズについては、検証中の機能です。<br>
 > 問題点やフィードバックがあれば、ぜひ[Issues](https://github.com/lgtm-factory/lgtm-factory/issues) から報告してください🤝
 
 #### 5-3.JSX エレメントと、動的な値について
