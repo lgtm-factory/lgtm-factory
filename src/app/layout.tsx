@@ -57,9 +57,11 @@ export default function RootLayout({
             className="object-cover"
           />
         </div>
-        <Header />
-        {children}
-        <Footer />
+        <div className="min-h-dvh">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
