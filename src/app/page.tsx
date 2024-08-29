@@ -14,7 +14,9 @@ export default function Home() {
   const url = "/api/v1/lgtm-images?theme=test";
   return (
     <main className="container">
-      <HeroSection />
+      <div className="my-8 md:my-16">
+        <HeroSection />
+      </div>
       <Button onClick={() => copy(copyText)}>copy</Button>
       <Button asChild>
         <a href={url} download="lgtm-image">
