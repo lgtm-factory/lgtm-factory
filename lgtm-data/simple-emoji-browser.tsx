@@ -1,7 +1,8 @@
 import { GetLgtmDataResult, InputData } from "@/types/lgtm-data";
+import getFontData from "@/utils/google-font";
 import { ImageResponseOptions } from "next/server";
 
-export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
+async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
     author: "kazzyfrog",
     description: "シンプルな絵文字",
@@ -12,6 +13,15 @@ export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
     width: 1200,
     height: 630,
     emoji: "noto",
+    fonts: [
+      {
+        name: "Inter",
+        data: await getFontData(
+          "https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700",
+        ),
+        weight: 700,
+      },
+    ],
   };
 
   const element = (
@@ -32,3 +42,5 @@ export default function getLgtmData(inputData: InputData): GetLgtmDataResult {
     options,
   };
 }
+
+export default getLgtmData;

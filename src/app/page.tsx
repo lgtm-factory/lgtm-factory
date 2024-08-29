@@ -26,7 +26,7 @@ export default function Home() {
         <p className="font-monoton text-accent">LGTM Factory</p>
         <p className="font-thin">LGTM良さそうだね</p>
         <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
+        {/* <p className="font-monoton text-accent">LGTM Factory</p>
         <p className="font-thin">LGTM良さそうだね</p>
         <p className="font-bold">LGTM良さそうだね</p>
         <p className="font-monoton text-accent">LGTM Factory</p>
@@ -70,7 +70,7 @@ export default function Home() {
         <p className="font-bold">LGTM良さそうだね</p>
         <p className="font-monoton text-accent">LGTM Factory</p>
         <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
+        <p className="font-bold">LGTM良さそうだね</p> */}
       </div>
     </main>
   );

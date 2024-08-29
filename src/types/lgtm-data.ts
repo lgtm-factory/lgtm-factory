@@ -18,4 +18,4 @@ export type GetLgtmDataResult = {
   options: ImageResponseOptions;
 };
 
-export type GetLgtmData = (inputData: InputData) => GetLgtmDataResult;
+export type GetLgtmData = (inputData: InputData) => Promise<GetLgtmDataResult>;
