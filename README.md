@@ -1,81 +1,73 @@
-# 📦 LGTM Factory
-（仮の画像です）
 ![](https://lgtm-factory.pages.dev/api/v1/lgtm-images?theme=simple-emoji-browser.tsx)
 
 <p align="left">
+  <img src="https://awesome.re/badge.svg" alt="Awesome">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat" alt="Static Badge">
   <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT">
   <img src="https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat" alt="Contributions Welcome">
-  <img src="https://img.shields.io/badge/first_contributions-%F0%9F%94%B0-white?style=flat" alt="Static Badge">
+  <img src="https://img.shields.io/badge/Looks_Good_To_Me-👀-black?style=flat" alt="Static Badge">
 </p>
 
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)][twttr-share]
 
-> GitHub上のコミュニケーションを楽しくするための LGTM ステッカー・スタンプです。
+> 自由自在な LGTM 画像で、プロジェクトを彩る 📦
 
-LGTM 画像生成サービスです。コンテンツは全てフリーライセンスなので、社内でも安心して使えます。
-そして、GitHub上のコミュニケーションを楽しくします！
+HTML & CSS で作成された、LGTM 画像のコレクションです。<br>
+楽しいコミュニケーションで、プロジェクトを彩りましょう！
 
-一言メッセージは、画像でいいかも！ ✌️
-
-<br>
-
-## はじめに
-ーー問題意識や背景、についての簡潔な記述ーー
-
-このプロジェクトは、
-
-### これは誰のためのものですか？
-
-- あああ
-
-### このプロジェクトの目的は？
-
-- あああ
+フリー素材のみを使用した OSS なので、安心してご利用いただけます！ 🙌
 
 <br>
 
 ## 特徴
-ーーこれは何？明確で簡潔なベネフィット・価値提供ーー
 
-- 動的な値から、スタンプを作成！
-- チームの一体感と明るいカルチャーを作り出します
-- そして Open-Source！あたなが作ったデザインテーマを PR して追加してください！
+- 🎨 単純な HTML/CSS で、デザインされたコレクション
+- 🛠 毎回動的な値を入力して、カスタマイズ可能
+- 🆓 著作権を気にせず安心して使える OSS
+- 📦 誰でも自由に追加できるコレクション
 
-### 使用方法
+**Web サイト上で、お気に入りの画像を取得してください**！<br>
+GitHub 上から、新しいデザインを追加してください！！
 
-1. ウェブサイト上で、お気に入りの画像を選択し、画像のURLをコピーします。
-1. １部のデザインテーマは、動的な値を入力して、画像を生成できます！
-1. GitHub 上に貼り付けます。
-
-コードレビュープロセスを、楽しく完了できます！
-
-### FAQ
+## FAQ
 
 <details><summary>「LGTM とはなんですか？」</summary>
 <p>
 
-「Looks Good To Me」
+「LGTM」は、Looks Good To Me の略です。
+チーム開発において、他のメンバーが書いたコードをレビューする際に、問題なく確認が完了したことを伝えるために使われる、開発者の慣習的な言葉です。
+そこから転じて、承認を表す際に「LGTM」という言葉だけでなく、「LGTM」という言葉入りの画像を貼る慣習も存在します！
 
 </p>
 </details> 
 
 <details><summary>「どうして Factory という名前なんですか？」</summary>
 <p>
+  
+- 動的な値を入力して、毎回オリジナルの画像を生成できること
+- HTML, CSS のコードで書かれたデザインテーマを作成することで、誰でもサイト上にコンテンツを追加できること
 
-作る！！開発者の開発者のための画像？毎回動的な値で生成される。
-チームの雰囲気を向上！工場！！
+上記の特徴を踏まえて、手作り・モノ作りの雰囲気から、ポップな工場風のコンセプトに決定しました！🔧
 
 </p>
 </details> 
 <details><summary>「これは、類似のLGTM 画像共有サービスとどう違うのですか？」</summary>
 <p>
 
-最低限デザインされた、モダンでゆるい、スタンプ。
-そして、オープンソースであり、ライセンスフリーです。
-ミームLGTM画像や推しキャラアイコンもも、もちろん好きですが、社内利用では著作権（もしくは肖像権）を無視して使用を続けることは、少し気がかりです。当然、このような規範・社内規定によって、LGTM画像を使用できないケースもあります。
-とはいえ、LGTM画像を貼るカルチャーが大好きなので、安心して活用したいです！
+大きな違いを挙げると、３つあります。
+
+**コンテンツの雰囲気**：
+単に画像をアップロードするのではなく、１つ１つデザインされた、コードベースのコンテンツを用意しています。
+これにより、ステッカー・スタンプのような、誰に対しても使いやすい雰囲気の画像を目指します。
+
+**オリジナルのメッセージ**：
+リモートでのコミュニケーションをさらに楽しくするため、動的な値（メッセージなど）を入力できます。
+
+**ライセンスフリー**：
+ミーム LGTM 画像も、もちろん好きですが、社内利用などでは著作権を無視して使用を続けることは、少し気がかりです。
+当然、チーム内や社内の規定によっては、そのようなLGTM画像を使用できないケースがあります。
+LGTM Factory は、HTML と CSS、そしてフリー素材のみを使用しているので、安心してご利用いただけます！
 
 </p>
 </details> 
@@ -93,12 +85,10 @@ GitHub プロフィールや、GitHub上のドキュメントの装飾など。�
 <p>
 
 どうぞ！！
-画像
+⚠️TODO: ドリンク画像を貼る！
 
 </p>
 </details> 
-
-<br>
 
 ## 技術構成
 LGTM Factory の基本的な構成は、以下のとおりです:)
@@ -136,7 +126,7 @@ OSS へのコントリビュートが初めての場合でも、最大限サポ�
 着手可能な Issue があれば、ぜひコメントを追加してください！<br>
 また、問題の解決策や、機能の実装方針が定まっていない議論段階の Issue を見つけたら、ぜひあなたの知見を貸してください！
 
-実際に Issue に取り組む際は、[貢献ガイドライン](./docs/CONTRIBUTING.md)を参照してください🤝
+実際に Issue に取り組む際は、[CONTRIBUTINGガイドライン](./github/CONTRIBUTING.md)を参照してください🤝
 
 <br>
 
@@ -148,3 +138,5 @@ LGTM Factory は、[MIT LICENSE](/LICENSE)の下でライセンスされたオ�
 
 このプロジェクトは、[Shields.io](https://github.com/badges/shields)や、`@vercel/og`の[ImageResponse](https://nextjs.org/docs/app/api-reference/functions/image-response)、<br>
 そして、多くの素晴らしい LGTM 画像共有サービスから影響を受けています。
+
+[twttr-share]: https://twitter.com/intent/tweet?text=自由自在なLGTM画像で、プロジェクトを彩る📦&url=https://github.com/lgtm-factory/lgtm-factory&hashtags=lgtmfactory,プログラミング 'Tweet this project'
