@@ -30,9 +30,9 @@ HTML & CSS で作成された、LGTM 画像のコレクションです。<br>
 **Web サイト上で、お気に入りの画像を取得してください**！<br>
 GitHub 上から、新しいデザインを追加してください！！
 
-## FAQ
+### FAQ:
 
-<details><summary>「LGTM とはなんですか？」</summary>
+<details><summary><strong>「LGTM とはなんですか？」</strong></summary>
 <p>
 
 「LGTM」は、Looks Good To Me の略です。
@@ -42,7 +42,7 @@ GitHub 上から、新しいデザインを追加してください！！
 </p>
 </details> 
 
-<details><summary>「どうして Factory という名前なんですか？」</summary>
+<details><summary><strong>「どうして Factory という名前なんですか？」</strong></summary>
 <p>
   
 - 動的な値を入力して、毎回オリジナルの画像を生成できること
@@ -52,7 +52,7 @@ GitHub 上から、新しいデザインを追加してください！！
 
 </p>
 </details> 
-<details><summary>「これは、類似のLGTM 画像共有サービスとどう違うのですか？」</summary>
+<details><summary><strong>「これは、類似のLGTM 画像共有サービスとどう違うのですか？」</strong></summary>
 <p>
 
 大きな違いを挙げると、３つあります。
@@ -71,7 +71,7 @@ LGTM Factory は、HTML と CSS、そしてフリー素材のみを使用して�
 
 </p>
 </details> 
-<details><summary>「コードレビュー以外でも使用可能ですか？」</summary>
+<details><summary><strong>「コードレビュー以外でも使用可能ですか？」</strong></summary>
 <p>
 
 もちろんです👍<br>
@@ -81,7 +81,7 @@ GitHub プロフィールや、GitHub上のドキュメントの装飾など。�
 
 </p>
 </details> 
-<details><summary>「喉が渇きました。何か飲み物はありますか？」</summary>
+<details><summary><strong>「喉が渇きました。何か飲み物はありますか？」</strong></summary>
 <p>
 
 どうぞ！！
@@ -90,7 +90,7 @@ GitHub プロフィールや、GitHub上のドキュメントの装飾など。�
 </p>
 </details> 
 
-## 技術構成
+### 技術構成:
 LGTM Factory の基本的な構成は、以下のとおりです:)
 
 - ⚡ Next.js v14/ App Router による、フルスタックアプリケーション
