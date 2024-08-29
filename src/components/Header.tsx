@@ -22,14 +22,12 @@ export default function Header() {
       <HeaderButton>
         <Link href="/">
           <LogoImage />
-          <span className="text-3xl">LGTM Factory</span>
         </Link>
       </HeaderButton>
 
       <HeaderButton>
         <a href={GITHUB_URL} target="_blank">
           <SiGithub size={40} />
-          <span className="text-3xl">Create new LGTM?</span>
         </a>
       </HeaderButton>
     </header>
