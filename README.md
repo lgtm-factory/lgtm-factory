@@ -112,7 +112,7 @@ LGTM Factory に貢献する主な方法は、３つあります：)
 
 Web サイト・UI コンポーネントを作成するように、LGTM ステッカーを作成できます！
 
-新たなデザインを追加したい場合は、[デザインテーマを追加するガイド]()を参照してください！<br>
+新たなデザインを追加したい場合は、[デザインテーマを追加するガイド](/design-guide.md)を参照してください！<br>
 OSS へのコントリビュートが初めての場合でも、最大限サポートします！！
 
 ### 2.Issue を立てる
@@ -126,7 +126,7 @@ OSS へのコントリビュートが初めての場合でも、最大限サポ�
 着手可能な Issue があれば、ぜひコメントを追加してください！<br>
 また、問題の解決策や、機能の実装方針が定まっていない議論段階の Issue を見つけたら、ぜひあなたの知見を貸してください！
 
-実際に Issue に取り組む際は、[CONTRIBUTINGガイドライン](./github/CONTRIBUTING.md)を参照してください🤝
+実際に Issue に取り組む際は、[CONTRIBUTINGガイドライン](/.github/CONTRIBUTING.md)を参照してください🤝
 
 <br>
 
@@ -139,4 +139,4 @@ LGTM Factory は、[MIT LICENSE](/LICENSE)の下でライセンスされたオ�
 このプロジェクトは、[Shields.io](https://github.com/badges/shields)や、`@vercel/og`の[ImageResponse](https://nextjs.org/docs/app/api-reference/functions/image-response)、<br>
 そして、多くの素晴らしい LGTM 画像共有サービスから影響を受けています。
 
-[twttr-share]: https://twitter.com/intent/tweet?text=自由自在なLGTM画像で、プロジェクトを彩る📦&url=https://github.com/lgtm-factory/lgtm-factory&hashtags=lgtmfactory,プログラミング 'Tweet this project'
+[twttr-share]: https://twitter.com/intent/tweet?text=自由自在なLGTM画像で、プロジェクトを彩る📦&url=https://github.com/lgtm-factory/lgtm-factory&hashtags=LGTMfactory,プログラミング 'Tweet this project'
