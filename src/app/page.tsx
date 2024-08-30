@@ -3,6 +3,7 @@ import { Button } from "@/components/shadcn-ui/button";
 import Image from "next/image";
 import logoImage from "@/assets/logo.svg";
 import HeroSection from "@/components/HeroSection";
+import NewLGTMButton from "@/components/NewLGTMButton";
 
 export default function Home() {
   function copy(copyText: string) {
@@ -17,6 +18,7 @@ export default function Home() {
       <div className="my-8 md:my-16">
         <HeroSection />
       </div>
+      <NewLGTMButton />
       <Button onClick={() => copy(copyText)}>copy</Button>
       <Button asChild>
         <a href={url} download="lgtm-image">

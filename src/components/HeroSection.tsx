@@ -1,6 +1,5 @@
 import Image from "next/image";
 import heroImage from "@/assets/logo.svg";
-import smokeImage from "@/assets/smoke.svg";
 
 export default function HeroSection() {
   return (
