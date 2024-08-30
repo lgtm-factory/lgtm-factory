@@ -4,6 +4,7 @@ import Image from "next/image";
 import logoImage from "@/assets/logo.svg";
 import HeroSection from "@/components/HeroSection";
 import NewLGTMButton from "@/components/NewLGTMButton";
+import MainSection from "@/components/MainSection";
 
 export default function Home() {
   function copy(copyText: string) {
@@ -18,6 +19,9 @@ export default function Home() {
       <div className="my-8 md:my-16">
         <HeroSection />
       </div>
+      <div>
+        <MainSection />
+      </div>
       <NewLGTMButton />
       <Button onClick={() => copy(copyText)}>copy</Button>
       <Button asChild>
@@ -27,54 +31,6 @@ export default function Home() {
       </Button>
       <div className="text-4xl">
         <Image src={logoImage} width={180} alt="logo image" />
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        {/* <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p>
-        <p className="font-monoton text-accent">LGTM Factory</p>
-        <p className="font-thin">LGTM良さそうだね</p>
-        <p className="font-bold">LGTM良さそうだね</p> */}
       </div>
     </main>
   );
