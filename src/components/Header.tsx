@@ -18,7 +18,7 @@ function HeaderButton({ children }: { children: React.ReactNode }) {
 
 export default function Header() {
   return (
-    <header className="sticky left-0 top-0 z-50 flex h-32 w-full items-center justify-between px-9 font-medium">
+    <header className="sticky left-0 top-0 z-50 flex h-14 w-full items-center justify-between px-4 font-medium sm:px-6">
       <HeaderButton>
         <Link href="/">
           <LogoImage />
@@ -27,7 +27,7 @@ export default function Header() {
 
       <HeaderButton>
         <a href={GITHUB_URL} target="_blank">
-          <SiGithub size={40} />
+          <SiGithub className="w-6 sm:w-8" />
         </a>
       </HeaderButton>
     </header>
