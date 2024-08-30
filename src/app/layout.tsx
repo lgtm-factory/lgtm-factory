@@ -3,9 +3,8 @@ import { IBM_Plex_Mono, Noto_Sans_JP, Monoton } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/shadcn-utils";
 import Image from "next/image";
-import bgImage from "@/assets/bg-image.png";
+import bgImage from "@/assets/bg-dark.png";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const ibmMono = IBM_Plex_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700"], // thinからboldまで指定可能
@@ -60,7 +59,6 @@ export default function RootLayout({
         <div className="min-h-dvh">
           <Header />
           {children}
-          <Footer />
         </div>
       </body>
     </html>
