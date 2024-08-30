@@ -40,7 +40,7 @@ GitHub 上から、新しいデザインを追加してください！！
 そこから転じて、承認を表す際に「LGTM」という言葉だけでなく、「LGTM」という言葉入りの画像を貼る慣習も存在します！
 
 </p>
-</details> 
+</details>
 
 <details><summary><strong>「どうして Factory という名前なんですか？」</strong></summary>
 <p>
@@ -88,7 +88,7 @@ GitHub プロフィールや、GitHub上のドキュメントの装飾など。�
 ⚠️TODO: ドリンク画像を貼る！
 
 </p>
-</details> 
+</details>
 
 <br>
 
@@ -125,7 +125,6 @@ OSS へのコントリビュートが初めての場合でも、最大限サポ�
 
 ### 3.未解決の Issue に着手する
 
-
 着手可能な Issue があれば、ぜひコメントを追加してください！<br>
 また、問題の解決策や、機能の実装方針が定まっていない議論段階の Issue を見つけたら、ぜひあなたの知見を貸してください！
 
@@ -142,4 +141,4 @@ LGTM Factory は、[MIT LICENSE](/LICENSE)の下でライセンスされたオ�
 このプロジェクトは、[Shields.io](https://github.com/badges/shields)や、`@vercel/og`の[ImageResponse](https://nextjs.org/docs/app/api-reference/functions/image-response)、<br>
 そして、多くの素晴らしい LGTM 画像共有サービスから影響を受けています。
 
-[twttr-share]: https://twitter.com/intent/tweet?text=自由自在なLGTM画像で、プロジェクトを彩る📦&url=https://github.com/lgtm-factory/lgtm-factory&hashtags=LGTMfactory,プログラミング 'Tweet this project'
+[twttr-share]: https://twitter.com/intent/tweet?text=自由自在なフリーLGTM画像で、プロジェクトを彩る📦&url=https://github.com/lgtm-factory/lgtm-factory&hashtags=LGTMfactory,OpenSource "Tweet this project"
