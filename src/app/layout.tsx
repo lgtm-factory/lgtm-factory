@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Noto_Sans_JP, Monoton } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/shadcn-utils";
-import Image from "next/image";
-import bgImage from "@/assets/bg-dark.png";
 import Header from "@/components/Header";
 
 const ibmMono = IBM_Plex_Mono({
@@ -43,23 +41,11 @@ export default function RootLayout({
           ibmMono.variable,
           notojp.variable,
           monoton.variable,
-          "relative font-sans text-foreground",
+          "-z-10 bg-[url('/bg-dark.png')] bg-cover bg-fixed bg-center font-sans text-foreground",
         )}
       >
-        <div className="fixed inset-0 -z-10">
-          <Image
-            src={bgImage}
-            alt="background image"
-            fill
-            quality={100}
-            placeholder="blur"
-            className="object-cover"
-          />
-        </div>
-        <div className="min-h-dvh">
-          <Header />
-          {children}
-        </div>
+        <Header />
+        {children}
       </body>
     </html>
   );
