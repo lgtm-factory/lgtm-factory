@@ -1,7 +1,17 @@
 "use client";
 import { Button } from "@/components/shadcn-ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/shadcn-ui/sheet";
+
 import Image from "next/image";
 import logoImage from "@/assets/logo.svg";
+// import { Sheet } from "lucide-react";
 
 export default function Home() {
   function copy(copyText: string) {
@@ -13,12 +23,27 @@ export default function Home() {
   const url = "/api/v1/lgtm-images?theme=test";
   return (
     <main className="p-16">
-      <Button onClick={() => copy(copyText)}>copy</Button>
-      <Button asChild>
-        <a href={url} download="lgtm-image">
-          download
-        </a>
-      </Button>
+      <Sheet>
+        <SheetTrigger>Open</SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Theme: Summer Sea</SheetTitle>
+          </SheetHeader>
+          <ul>
+            <li>Perfect for code reviews in August!</li>
+            <li>color: </li>
+            <li>author: kagome</li>
+          </ul>
+          <div className="flex">
+            <Button onClick={() => copy(copyText)}>copy</Button>
+            <Button asChild>
+              <a href={url} download="lgtm-image">
+                download
+              </a>
+            </Button>
+          </div>
+        </SheetContent>
+      </Sheet>
       <div className="text-4xl">
         <Image src={logoImage} width={180} alt="logo image" />
         <p className="font-monoton text-accent">LGTM Factory</p>
