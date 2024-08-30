@@ -3,7 +3,7 @@ import { IBM_Plex_Mono, Noto_Sans_JP, Monoton } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/shadcn-utils";
 import Image from "next/image";
-import bgImage from "@/assets/bg-image.png";
+import bgImage from "@/assets/bg-dark.png";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
