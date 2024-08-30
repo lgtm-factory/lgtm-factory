@@ -3,11 +3,13 @@ import { Button } from "@/components/shadcn-ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetFooter,
+  SheetClose,
 } from "@/components/shadcn-ui/sheet";
+import { Input } from "@/components/shadcn-ui/input";
 
 import Image from "next/image";
 import logoImage from "@/assets/logo.svg";
@@ -25,22 +27,33 @@ export default function Home() {
     <main className="p-16">
       <Sheet>
         <SheetTrigger>Open</SheetTrigger>
-        <SheetContent>
+        <SheetContent className="flex flex-col gap-y-8 p-10">
           <SheetHeader>
             <SheetTitle>Theme: Summer Sea</SheetTitle>
+            <ul>
+              <li>Perfect for code reviews in August!</li>
+              <li>color: </li>
+              <li>author: kagome</li>
+            </ul>
           </SheetHeader>
-          <ul>
-            <li>Perfect for code reviews in August!</li>
-            <li>color: </li>
-            <li>author: kagome</li>
-          </ul>
-          <div className="flex">
-            <Button onClick={() => copy(copyText)}>copy</Button>
-            <Button asChild>
+          <div className="h-[200px] w-full rounded-sm bg-indigo-500"></div>
+          <div className="flex gap-x-4">
+            <Button onClick={() => copy(copyText)} className="flex-1">
+              copy
+            </Button>
+            <Button asChild className="flex-1">
               <a href={url} download="lgtm-image">
                 download
               </a>
             </Button>
+          </div>
+          <div className="mt-auto space-y-4">
+            <Input type="text" placeholder="Text" />
+            <SheetFooter>
+              <SheetClose asChild>
+                <Button className="w-full">Save changes</Button>
+              </SheetClose>
+            </SheetFooter>
           </div>
         </SheetContent>
       </Sheet>
