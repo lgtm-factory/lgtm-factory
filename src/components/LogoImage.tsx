@@ -8,7 +8,7 @@ export default function LogoImage({ className }: { className?: string }) {
       <Image
         src={logoImage}
         alt="LGTM logo image"
-        className={cn("w-10 -scale-x-100 sm:w-12", className)}
+        className={cn("w-10 -scale-x-100", className)}
       />
     </span>
   );
