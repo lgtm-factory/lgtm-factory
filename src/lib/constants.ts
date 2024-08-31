@@ -8,7 +8,7 @@ interface SiteMetadata {
 }
 
 export const siteMetadata: SiteMetadata = {
-  SITE_URL: "https://lgtm-factory.pages.dev/",
+  SITE_URL: "https://lgtm-factory.pages.dev",
   SITE_NAME: "LGTM Factory",
   SITE_DESC:
     "HTML/CSSから生成されたフリーLGTM画像のコレクション | Free & Open Source LGTM Image Generator 📦",
