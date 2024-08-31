@@ -5,7 +5,7 @@ import logoImage from "@/assets/logo.svg";
 import HeroSection from "@/components/HeroSection";
 import NewLGTMButton from "@/components/NewLGTMButton";
 
-export default async function Home() {
+export default function Home() {
   function copy(copyText: string) {
     navigator.clipboard.writeText(copyText);
     alert("Copied!");
