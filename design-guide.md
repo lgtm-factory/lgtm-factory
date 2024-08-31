@@ -183,10 +183,11 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
 **その際、CSS の記述方法に応じて、下記のテンプレートを使用できます**:
 
 <details>
-  <summary>💡 テンプレート1: インラインスタイル</summary>
+  <summary><strong>💡 テンプレート1: インラインスタイル</strong></summary>
 
 ```tsx
 import { GetLgtmDataResult, InputData } from "@/types/lgtm-data";
+import { ImageResponseOptions } from "next/server";
 
 async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
@@ -195,7 +196,7 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
     editableFields: ["emoji"],
   };
 
-  const options = {
+  const options: ImageResponseOptions = {
     width: 1200,
     height: 630,
     emoji: "twemoji",
@@ -244,10 +245,11 @@ export default getLgtmData;
 </details>
 
 <details>
-  <summary>💡 テンプレート2: Tailwind CSSによるスタイリング</summary>
+  <summary><strong>💡 テンプレート2: Tailwind CSSによるスタイリング</strong></summary>
 
 ```tsx
 import { GetLgtmDataResult, InputData } from "@/types/lgtm-data";
+import { ImageResponseOptions } from "next/server";
 
 async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
@@ -256,7 +258,7 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
     editableFields: ["emoji"],
   };
 
-  const options = {
+  const options: ImageResponseOptions = {
     width: 1200,
     height: 630,
     emoji: "twemoji",
@@ -348,7 +350,7 @@ Webサイト上に掲載するため、必要なデザイン情報は、以下�
      style: 'normal' | 'italic'
   }
   ```
-  
+
 **テキストのフォントの種類について**:
 
 - テキストのフォントの種類は、現在`Google Fonts` のみをサポートしています。
@@ -364,13 +366,14 @@ Webサイト上に掲載するため、必要なデザイン情報は、以下�
     ],
   ```
 - `Google Fonts` のURLを取得する手順は、次の通りです：
+
 1. [Google Fonts](https://fonts.google.com)のサイト上から、お好きなフォントを選び、太さ（weight）を選択する
 2. 「**Get embed code**」ボタンをクリック
 3. `https://fonts.googleapis.com/css2`から始まる、フォントのURLをコピー
-    - **`Italic`や`Weight`は、Google Fonts のサイト上で指定してください**
-    - 例：`https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700`
+   - **`Italic`や`Weight`は、Google Fonts のサイト上で指定してください**
+   - 例：`https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700`
 4. ファイル内でインポートした、`getFontData()`の引数に渡す
-    - 🚨注意：`import getFontData from "@/utils/google-font";`で、フォント取得用の関数をインポートしてください。
+   - 🚨注意：`import getFontData from "@/utils/google-font";`で、フォント取得用の関数をインポートしてください。
 
 > [!IMPORTANT]
 > このテキストのフォントのカスタマイズについては、検証中の機能です。<br>
