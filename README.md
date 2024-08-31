@@ -1,4 +1,6 @@
-![](https://lgtm-factory.pages.dev/api/v1/lgtm-images?theme=simple-emoji-browser.tsx)
+<p align="center">
+  <img src="/public/github-social-preview.png">
+</p>
 
 <p align="left">
   <img src="https://awesome.re/badge.svg" alt="Awesome">
