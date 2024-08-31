@@ -19,7 +19,7 @@ async function MainSection() {
           return (
             <div key={theme} className="cursor-pointer shadow-md">
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/lgtm-images?theme=${theme}`}
+                src={`/api/v1/lgtm-images?theme=${theme}`}
                 alt="LGTM image"
                 width={1200}
                 height={630}
