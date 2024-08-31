@@ -19,6 +19,13 @@ export const metadata: Metadata = {
     siteName: siteMetadata.SITE_NAME,
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: "/api/v1/lgtm-images?theme=opengraph",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
