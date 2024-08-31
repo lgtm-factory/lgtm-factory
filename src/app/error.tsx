@@ -1,4 +1,4 @@
-"use client"; // Error boundaries must be Client Components
+"use client";
 
 import { Button } from "@/components/shadcn-ui/button";
 import { useEffect } from "react";
@@ -16,16 +16,9 @@ function Error({
   }, [error]);
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <Button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </Button>
+    <div className="container mt-8 space-y-8">
+      <h2 className="text-2xl font-bold">🚨 Something went wrong 🐈‍⬛</h2>
+      <Button onClick={() => reset()}>Try again</Button>
     </div>
   );
 }

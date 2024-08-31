@@ -1,5 +1,6 @@
-"use client"; // Error boundaries must be Client Components
+"use client";
 import { Button } from "@/components/shadcn-ui/button";
+import { useEffect } from "react";
 
 function GlobalError({
   error,
@@ -8,13 +9,17 @@ function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error);
+  }, [error]);
   return (
-    // global-error must include html and body tags
     <html>
       <body>
-        <h2>Something went wrong!</h2>
-        <p>{error.message}</p>
-        <Button onClick={() => reset()}>Try again</Button>
+        <div className="container mt-8 space-y-8">
+          <h2 className="text-2xl font-bold">🚨 Something went wrong 🐈‍⬛</h2>
+          <Button onClick={() => reset()}>Try again</Button>
+        </div>
       </body>
     </html>
   );
