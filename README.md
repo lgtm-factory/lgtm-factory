@@ -143,4 +143,4 @@ LGTM Factory は、[MIT LICENSE](/LICENSE)の下でライセンスされたオ�
 このプロジェクトは、[Shields.io](https://github.com/badges/shields)や、`@vercel/og`の[ImageResponse](https://nextjs.org/docs/app/api-reference/functions/image-response)、<br>
 そして、多くの素晴らしい LGTM 画像共有サービスから影響を受けています。
 
-[twttr-share]: https://twitter.com/intent/tweet?text=自由自在なLGTM画像で、プロジェクトを彩る📦&url=https://github.com/lgtm-factory/lgtm-factory&hashtags=LGTMfactory,プログラミング "Tweet this project"
+[twttr-share]: https://twitter.com/intent/tweet?text=自由自在なフリーLGTM画像で、プロジェクトを彩る📦&url=https://github.com/lgtm-factory/lgtm-factory&hashtags=LGTMfactory,OpenSource "Tweet this project"

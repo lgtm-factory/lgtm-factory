@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Button } from "@/components/shadcn-ui/button";
-import { GITHUB_URL } from "@/lib/constants";
 import LogoImage from "@/components/LogoImage";
+import { siteMetadata } from "@/lib/constants";
 
 function HeaderButton({ children }: { children: React.ReactNode }) {
   return (
@@ -26,7 +26,7 @@ export default function Header() {
       </HeaderButton>
 
       <HeaderButton>
-        <a href={GITHUB_URL} target="_blank">
+        <a href={siteMetadata.GITHUB_URL} target="_blank">
           <SiGithub size={24} />
         </a>
       </HeaderButton>
