@@ -15,18 +15,17 @@ import { useEffect, useState } from "react";
 import { getDesignInfo } from "@/actions/getDesignInfo";
 import LgtmImage from "@/components/LgtmImage";
 import { DesignInfo } from "@/types/lgtm-data";
+import { siteMetadata } from "@/lib/constants";
 
 function ImageInfoModal({
   children,
   theme,
-  baseUrl,
 }: {
   children: React.ReactNode;
   theme: string;
-  baseUrl: string;
 }) {
   const [designInfo, setDesignInfo] = useState<DesignInfo | null>(null);
-  const url = `${baseUrl}/api/v1/lgtm-images?theme=${theme}`;
+  const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}`;
 
   useEffect(() => {
     theme &&
