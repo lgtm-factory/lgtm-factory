@@ -16,7 +16,7 @@ import { getDesignInfo } from "@/actions/getDesignInfo";
 import LgtmImage from "@/components/LgtmImage";
 import { DesignInfo } from "@/types/lgtm-data";
 
-export default function EditSheet({
+function ImageInfoModal({
   theme,
   baseUrl,
 }: {
@@ -59,3 +59,5 @@ export default function EditSheet({
     </Sheet>
   );
 }
+
+export default ImageInfoModal;
