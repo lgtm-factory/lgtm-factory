@@ -14,6 +14,8 @@ async function getFileNames() {
 
 async function MainSection() {
   const themes = await getFileNames();
+
+  // metadataはサーバーコンポーネントでのみ使用可能
   const baseUrl = metadata.metadataBase!.origin;
 
   return (
