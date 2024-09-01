@@ -25,6 +25,8 @@ export default function Header() {
         </Link>
       </HeaderButton>
 
+      <Link href="/terms">License</Link>
+
       <HeaderButton>
         <a href={siteMetadata.GITHUB_URL} target="_blank">
           <SiGithub size={24} />
