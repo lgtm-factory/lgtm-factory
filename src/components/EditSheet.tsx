@@ -27,7 +27,7 @@ export default function EditSheet() {
       <SheetTrigger>
         <div className="h-[200px] w-[300px] rounded-sm bg-white bg-opacity-50"></div>
       </SheetTrigger>
-      <SheetContent className="flex flex-col gap-y-8 p-10">
+      <SheetContent className="space-y-8 p-10">
         <SheetHeader>
           <SheetTitle>Theme: Summer Sea</SheetTitle>
           <ul>
@@ -37,7 +37,7 @@ export default function EditSheet() {
           </ul>
         </SheetHeader>
         <div className="h-[200px] w-full rounded-sm bg-black bg-opacity-30"></div>
-        <div className="flex gap-x-4">
+        <div className="flex gap-4">
           <Button onClick={() => copy(copyText)} className="flex-1">
             copy
           </Button>
@@ -52,7 +52,7 @@ export default function EditSheet() {
             Share X
           </a>
         </Button>
-        <div className="mt-auto space-y-4">
+        <div className="space-y-4">
           <Input type="text" placeholder="Text" />
           <SheetFooter>
             <SheetClose asChild>
