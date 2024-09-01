@@ -2,13 +2,14 @@
 
 import { Button } from "@/components/shadcn-ui/button";
 
-function CopyButton({ copyText }: { copyText: string }) {
-  function copy(copyText: string) {
-    navigator.clipboard.writeText(copyText);
+function CopyButton({ url }: { url: string }) {
+  const mdText = `![LGTM-image](${url})`;
+  function copy(text: string) {
+    navigator.clipboard.writeText(text);
     alert("Copied!");
   }
   return (
-    <Button onClick={() => copy(copyText)} className="flex-1">
+    <Button onClick={() => copy(mdText)} className="flex-1">
       copy
     </Button>
   );

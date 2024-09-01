@@ -16,8 +16,15 @@ import { getDesignInfo } from "@/actions/getDesignInfo";
 import LgtmImage from "@/components/LgtmImage";
 import { DesignInfo } from "@/types/lgtm-data";
 
-export default function EditSheet({ theme }: { theme: string }) {
+export default function EditSheet({
+  theme,
+  baseUrl,
+}: {
+  theme: string;
+  baseUrl: string;
+}) {
   const [designInfo, setDesignInfo] = useState<DesignInfo | null>(null);
+  const url = `${baseUrl}/api/v1/lgtm-images?theme=${theme}`;
 
   useEffect(() => {
     theme &&
@@ -43,8 +50,8 @@ export default function EditSheet({ theme }: { theme: string }) {
         </SheetHeader>
         <LgtmImage theme={theme} />
         <div className="flex gap-4">
-          <CopyButton copyText="test copy text" />
-          <DownloadButton url="test download url" />
+          <CopyButton url={url} />
+          <DownloadButton url={url} />
         </div>
         <ShareButton />
         <EditArea />

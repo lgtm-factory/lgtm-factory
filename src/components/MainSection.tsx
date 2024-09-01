@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import EditSheet from "./EditSheet";
+import { metadata } from "@/app/layout";
 
 async function getFileNames() {
   const fileNames = await fs.readdir("lgtm-data");
@@ -12,12 +13,13 @@ async function getFileNames() {
 
 async function MainSection() {
   const themes = await getFileNames();
+  const baseUrl = metadata.metadataBase!.origin;
 
   return (
     <section>
       <div className="mx-auto grid w-fit gap-8 sm:grid-cols-2 sm:gap-14 lg:grid-cols-3">
         {themes?.map((theme: string) => {
-          return <EditSheet theme={theme} key={theme} />;
+          return <EditSheet theme={theme} key={theme} baseUrl={baseUrl} />;
         })}
       </div>
     </section>
