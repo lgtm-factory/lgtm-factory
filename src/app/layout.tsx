@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Noto_Sans_JP, Monoton } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/shadcn-utils";
-import Header from "@/components/Header";
 import { siteMetadata } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -69,7 +68,6 @@ export default function RootLayout({
           "-z-10 bg-[url('/bg-dark.png')] bg-cover bg-fixed bg-center font-sans text-foreground",
         )}
       >
-        <Header />
         {children}
       </body>
     </html>
