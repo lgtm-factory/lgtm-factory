@@ -17,9 +17,11 @@ import LgtmImage from "@/components/LgtmImage";
 import { DesignInfo } from "@/types/lgtm-data";
 
 function ImageInfoModal({
+  children,
   theme,
   baseUrl,
 }: {
+  children: React.ReactNode;
   theme: string;
   baseUrl: string;
 }) {
@@ -36,9 +38,7 @@ function ImageInfoModal({
 
   return (
     <Sheet>
-      <SheetTrigger>
-        <LgtmImage theme={theme} className="cursor-pointer" />
-      </SheetTrigger>
+      <SheetTrigger>{children}</SheetTrigger>
       <SheetContent className="space-y-8 p-10">
         <SheetHeader>
           <SheetTitle>{theme}</SheetTitle>
