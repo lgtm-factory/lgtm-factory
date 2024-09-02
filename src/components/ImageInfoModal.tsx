@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Sheet,
   SheetContent,
@@ -11,29 +9,22 @@ import CopyButton from "@/components/CopyButton";
 import DownloadButton from "@/components/DownloadButton";
 import ShareButton from "@/components/ShareButton";
 import EditArea from "@/components/EditArea";
-import { useEffect, useState } from "react";
-import { getDesignInfo } from "@/actions/getDesignInfo";
 import LgtmImage from "@/components/LgtmImage";
-import { DesignInfo } from "@/types/lgtm-data";
 import { siteMetadata } from "@/lib/constants";
 
-function ImageInfoModal({
+async function ImageInfoModal({
   children,
   theme,
 }: {
   children: React.ReactNode;
   theme: string;
 }) {
-  const [designInfo, setDesignInfo] = useState<DesignInfo | null>(null);
   const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}`;
 
-  useEffect(() => {
-    theme &&
-      (async () => {
-        const info = await getDesignInfo(theme);
-        setDesignInfo(info);
-      })();
-  }, []);
+  const response = await fetch(
+    `http://localhost:3000/api/v1/design-info?theme=${theme}`,
+  );
+  const { designInfo } = await response.json();
 
   return (
     <Sheet>
