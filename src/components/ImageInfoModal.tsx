@@ -22,7 +22,7 @@ async function ImageInfoModal({
   const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}`;
 
   const response = await fetch(
-    `http://localhost:3000/api/v1/design-info?theme=${theme}`,
+    `${siteMetadata.SITE_URL}/api/v1/design-info?theme=${theme}`,
   );
   const { designInfo } = await response.json();
 
