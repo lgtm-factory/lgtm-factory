@@ -14,21 +14,37 @@ import EditArea from "@/components/EditArea";
 import LgtmImage from "@/components/LgtmImage";
 import { siteMetadata } from "@/lib/constants";
 import { DesignInfo } from "@/types/lgtm-data";
+import { useEffect, useState } from "react";
 
-function ImageInfoModal({
-  children,
-  theme,
-  info,
-}: {
-  children: React.ReactNode;
-  theme: string;
-  info: DesignInfo;
-}) {
+function ImageInfoModal({ theme }: { theme: string }) {
   const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}`;
+
+  const [info, setInfo] = useState<DesignInfo | null>(null);
+
+  useEffect(() => {
+    async function ImageInfoModalWrapper(theme: string) {
+      try {
+        const response = await fetch(
+          `${siteMetadata.SITE_URL}/api/v1/design-info?theme=${theme}`,
+        );
+        const { designInfo } = await response.json();
+        setInfo(designInfo);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error(`fetch error: ${error.message}`);
+          setInfo(null);
+        }
+      }
+    }
+
+    ImageInfoModalWrapper(theme);
+  }, [theme]);
 
   return (
     <Sheet>
-      <SheetTrigger>{children}</SheetTrigger>
+      <SheetTrigger>
+        <LgtmImage theme={theme} className="cursor-pointer" />
+      </SheetTrigger>
       <SheetContent className="space-y-8 p-10">
         <SheetHeader>
           <SheetTitle>{theme}</SheetTitle>
