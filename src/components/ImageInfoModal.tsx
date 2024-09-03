@@ -35,7 +35,7 @@ async function ImageInfoModal({
           <ul>
             <li>desc: {designInfo?.description}</li>
             <li>author: {designInfo?.author}</li>
-            <li>editableFields: {designInfo?.editableFields.join(", ")}</li>
+            <li>editableFields: {designInfo?.editableFields?.join(", ")}</li>
           </ul>
         </SheetHeader>
         <LgtmImage theme={theme} />

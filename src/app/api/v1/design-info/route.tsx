@@ -17,11 +17,9 @@ export async function GET(request: NextRequest) {
     if (theme) {
       const getLgtmData = await importLgtmDataModule(theme);
       const { designInfo } = await getLgtmData(inputData);
-      console.log("designInfo", designInfo);
       return NextResponse.json({ designInfo: designInfo }, { status: 200 });
     }
   } catch (error) {
-    console.error(error);
     return NextResponse.json({ designInfo: null }, { status: 400 });
   }
 }
