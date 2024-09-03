@@ -7,6 +7,10 @@ export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const theme = searchParams.get("theme");
 
+  if (!theme) {
+    return NextResponse.json({ designInfo: null }, { status: 400 });
+  }
+
   const inputData = {
     emoji: "",
     text: "",
@@ -14,12 +18,10 @@ export async function GET(request: NextRequest) {
   };
 
   try {
-    if (theme) {
-      const getLgtmData = await importLgtmDataModule(theme);
-      const { designInfo } = await getLgtmData(inputData);
-      return NextResponse.json({ designInfo: designInfo }, { status: 200 });
-    }
-  } catch (error) {
+    const getLgtmData = await importLgtmDataModule(theme);
+    const { designInfo } = await getLgtmData(inputData);
+    return NextResponse.json({ designInfo: designInfo }, { status: 200 });
+  } catch (_) {
     return NextResponse.json({ designInfo: null }, { status: 400 });
   }
 }
