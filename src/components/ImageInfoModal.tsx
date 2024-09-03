@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sheet,
   SheetContent,
@@ -11,20 +13,18 @@ import ShareButton from "@/components/ShareButton";
 import EditArea from "@/components/EditArea";
 import LgtmImage from "@/components/LgtmImage";
 import { siteMetadata } from "@/lib/constants";
+import { DesignInfo } from "@/types/lgtm-data";
 
-async function ImageInfoModal({
+function ImageInfoModal({
   children,
   theme,
+  info,
 }: {
   children: React.ReactNode;
   theme: string;
+  info: DesignInfo;
 }) {
   const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}`;
-
-  const response = await fetch(
-    `${siteMetadata.SITE_URL}/api/v1/design-info?theme=${theme}`,
-  );
-  const { designInfo } = await response.json();
 
   return (
     <Sheet>
@@ -33,9 +33,9 @@ async function ImageInfoModal({
         <SheetHeader>
           <SheetTitle>{theme}</SheetTitle>
           <ul>
-            <li>desc: {designInfo?.description}</li>
-            <li>author: {designInfo?.author}</li>
-            <li>editableFields: {designInfo?.editableFields?.join(", ")}</li>
+            <li>desc: {info?.description}</li>
+            <li>author: {info?.author}</li>
+            <li>editableFields: {info?.editableFields?.join(", ")}</li>
           </ul>
         </SheetHeader>
         <LgtmImage theme={theme} />

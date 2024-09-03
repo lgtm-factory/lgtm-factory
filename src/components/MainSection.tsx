@@ -1,7 +1,8 @@
 import fs from "fs/promises";
 import path from "path";
-import ImageInfoModal from "@/components/ImageInfoModal";
-import LgtmImage from "@/components/LgtmImage";
+// import ImageInfoModal from "@/components/ImageInfoModal";
+// import LgtmImage from "@/components/LgtmImage";
+import ImageInfoModalWrapper from "./ImageInfoModalWrapper";
 
 async function getFileNames() {
   const fileNames = await fs.readdir("lgtm-data");
@@ -18,11 +19,7 @@ async function MainSection() {
     <section>
       <div className="mx-auto grid w-fit gap-8 sm:grid-cols-2 sm:gap-14 lg:grid-cols-3">
         {themes?.map((theme: string) => {
-          return (
-            <ImageInfoModal theme={theme} key={theme}>
-              <LgtmImage theme={theme} className="cursor-pointer" />
-            </ImageInfoModal>
-          );
+          return <ImageInfoModalWrapper theme={theme} key={theme} />;
         })}
       </div>
     </section>
