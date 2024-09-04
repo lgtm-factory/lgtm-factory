@@ -86,8 +86,10 @@ GitHub プロフィールや、GitHub上のドキュメントの装飾など。�
 <details><summary><strong>「喉が渇きました。何か飲み物はありますか？」</strong></summary>
 <p>
 
-どうぞ！！
-⚠️TODO: ドリンク画像を貼る！
+どうぞ！！<br>
+
+
+[![](https://add-lgtm-contents.lgtm-factory.pages.dev/api/v1/lgtm-images?theme=iced-coffee&text=Have%20a%20nice%20day%20:）)](https://lgtm-factory.pages.dev)
 
 </p>
 </details>
