@@ -422,7 +422,7 @@ Webサイト上に掲載するため、必要なデザイン情報は、以下�
 1. 変更をコミットする。
    ```
    git add .
-   git commit -m "theme: 📦 add design theme <new-file>"
+   git commit -m "theme: 📦 add <new-file>"
    ```
 1. 変更をリポートリポジトリに、プッシュする
    ```
