@@ -15,16 +15,16 @@ export function getSearchParams(request: NextRequest) {
   };
 }
 
-export function handleMissingTheme(inputData: InputData) {
-  return createErrorResponse(inputData, ERRORS.THEME_MISSING, 400);
+export async function handleMissingTheme(inputData: InputData) {
+  return await createErrorResponse(inputData, ERRORS.THEME_MISSING, 400);
 }
 
-export function validateInputData(inputData: InputData) {
+export async function validateInputData(inputData: InputData) {
   return inputDataSchema.safeParse(inputData);
 }
 
-export function handleValidationError(inputData: InputData) {
-  return createErrorResponse(inputData, ERRORS.INVALID_INPUT_DATA, 400);
+export async function handleValidationError(inputData: InputData) {
+  return await createErrorResponse(inputData, ERRORS.INVALID_INPUT_DATA, 400);
 }
 
 export async function importLgtmDataModule(
@@ -41,7 +41,7 @@ export async function importLgtmDataModule(
   return getLgtmData;
 }
 
-export function handleError(
+export async function handleError(
   error: unknown,
   theme: string,
   inputData: InputData,
@@ -51,7 +51,7 @@ export function handleError(
     error instanceof Error &&
     error.message === ERRORS.INVALID_MODULE_STRUCTURE
   ) {
-    return createErrorResponse(
+    return await createErrorResponse(
       inputData,
       `Failed to load theme: ${theme}`,
       500,
@@ -59,17 +59,17 @@ export function handleError(
   }
   // 指定されたテーマが存在しない場合
   if (error instanceof Error && error.message.includes("Cannot find module")) {
-    return createErrorResponse(inputData, `Invalid theme: ${theme}`, 404);
+    return await createErrorResponse(inputData, `Invalid theme: ${theme}`, 404);
   }
   // 予期せぬエラーが発生した場合
-  return createErrorResponse(inputData, ERRORS.UNEXPECTED, 500);
+  return await createErrorResponse(inputData, ERRORS.UNEXPECTED, 500);
 }
 
-function createErrorResponse(
+async function createErrorResponse(
   inputData: InputData,
   text: string,
   status: number,
 ) {
-  const { element, options } = getErrorData({ ...inputData, text });
+  const { element, options } = await getErrorData({ ...inputData, text });
   return new ImageResponse(element, { ...options, status });
 }
