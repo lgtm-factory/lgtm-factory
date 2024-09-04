@@ -65,7 +65,7 @@ export default function RootLayout({
           ibmMono.variable,
           notojp.variable,
           monoton.variable,
-          "-z-10 bg-[url('/bg-dark.png')] bg-cover bg-fixed bg-center font-sans text-foreground",
+          "-z-10 bg-[url('/cardboard-dark.png')] bg-cover bg-fixed bg-center font-sans text-foreground",
         )}
       >
         {children}

@@ -29,7 +29,7 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
     <div tw="flex h-full w-full flex-col items-center bg-white">
       <div tw="flex h-screen absolute">
         <img
-          src={`${siteMetadata.SITE_URL}/bg-dark.png`}
+          src={`${siteMetadata.SITE_URL}/cardboard-dark.png`}
           alt="paper-background"
           width={1200}
           height={630}
