@@ -6,11 +6,14 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetFooter,
+  SheetClose,
 } from "@/components/shadcn-ui/sheet";
+import { Input } from "@/components/shadcn-ui/input";
+import { Button } from "@/components/shadcn-ui/button";
 import CopyButton from "@/components/CopyButton";
 import DownloadButton from "@/components/DownloadButton";
 import ShareButton from "@/components/ShareButton";
-import EditArea from "@/components/EditArea";
 import LgtmImage from "@/components/LgtmImage";
 import { siteMetadata } from "@/lib/constants";
 import { DesignInfo } from "@/types/lgtm-data";
@@ -60,7 +63,14 @@ function ImageInfoModal({ theme }: { theme: string }) {
           <DownloadButton url={url} />
         </div>
         <ShareButton />
-        <EditArea />
+        <div className="space-y-4">
+          <Input type="text" placeholder="Text" />
+          <SheetFooter>
+            <SheetClose asChild>
+              <Button className="w-full">Save changes</Button>
+            </SheetClose>
+          </SheetFooter>
+        </div>
       </SheetContent>
     </Sheet>
   );
