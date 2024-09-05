@@ -23,12 +23,12 @@ export async function GET(request: NextRequest) {
 
   // テーマが入力されなかった場合
   if (!theme) {
-    return handleMissingTheme(inputData);
+    return await handleMissingTheme(inputData);
   }
 
-  const validationResult = validateInputData(inputData);
+  const validationResult = await validateInputData(inputData);
   if (!validationResult.success) {
-    return handleValidationError(inputData);
+    return await handleValidationError(inputData);
   }
 
   try {
@@ -36,6 +36,6 @@ export async function GET(request: NextRequest) {
     const { element, options } = await getLgtmData(inputData);
     return new ImageResponse(element, { ...options, status: 200 });
   } catch (error: unknown) {
-    return handleError(error, theme, inputData);
+    return await handleError(error, theme, inputData);
   }
 }
