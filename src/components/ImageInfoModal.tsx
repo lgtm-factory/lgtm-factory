@@ -22,7 +22,7 @@ function ImageInfoModal({ theme }: { theme: string }) {
   const [info, setInfo] = useState<DesignInfo | null>(null);
 
   useEffect(() => {
-    async function ImageInfoModalWrapper(theme: string) {
+    async function getDesignInfo(theme: string) {
       try {
         const response = await fetch(
           `${siteMetadata.SITE_URL}/api/v1/design-info?theme=${theme}`,
@@ -37,7 +37,7 @@ function ImageInfoModal({ theme }: { theme: string }) {
       }
     }
 
-    ImageInfoModalWrapper(theme);
+    getDesignInfo(theme);
   }, [theme]);
 
   return (
