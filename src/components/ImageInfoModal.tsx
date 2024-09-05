@@ -57,14 +57,16 @@ function ImageInfoModal({ theme }: { theme: string }) {
             <li>editableFields: {info?.editableFields?.join(", ")}</li>
           </ul>
         </SheetHeader>
-        <LgtmImage theme={theme} />
+        <LgtmImage theme={theme} className="max-h-24" />
         <div className="flex gap-4">
           <CopyButton url={url} />
           <DownloadButton url={url} />
         </div>
         <ShareButton />
         <div className="space-y-4">
-          <Input type="text" placeholder="Text" />
+          {info?.editableFields?.map((editableFields: string) => {
+            return <Input type="text" placeholder={editableFields} />;
+          })}
           <SheetFooter>
             <SheetClose asChild>
               <Button className="w-full">Save changes</Button>

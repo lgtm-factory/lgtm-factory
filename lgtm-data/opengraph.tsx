@@ -7,7 +7,7 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
     author: "kazzyfrog",
     description: "LGTM Factory の OpenGraph 画像です 📦",
-    editableFields: ["emoji"],
+    editableFields: ["emoji", "text"], // 動作確認でtextを追加中
   };
 
   const options: ImageResponseOptions = {
