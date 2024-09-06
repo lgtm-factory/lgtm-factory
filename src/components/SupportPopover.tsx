@@ -7,7 +7,7 @@ function SupportPopover() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <div className="fixed bottom-4 right-4 z-50 hidden w-fit cursor-pointer sm:bottom-8 sm:right-8 sm:block">
+        <div className="fixed bottom-4 right-4 z-50 hidden w-fit cursor-pointer hover:opacity-80 sm:bottom-8 sm:right-8 sm:block">
           <Image
             src={tapeImage}
             alt="link to GitHub page"
