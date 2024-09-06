@@ -11,8 +11,8 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   };
 
   const options: ImageResponseOptions = {
-    width: 384,
-    height: 461,
+    width: 269,
+    height: 308,
     emoji: "noto",
     fonts: [
       {
