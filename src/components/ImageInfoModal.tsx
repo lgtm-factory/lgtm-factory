@@ -11,6 +11,7 @@ import {
 } from "@/components/shadcn-ui/sheet";
 import { Input } from "@/components/shadcn-ui/input";
 import { Button } from "@/components/shadcn-ui/button";
+import { FormField } from "@/components/shadcn-ui/form";
 import CopyButton from "@/components/CopyButton";
 import DownloadButton from "@/components/DownloadButton";
 import ShareButton from "@/components/ShareButton";
@@ -18,9 +19,13 @@ import LgtmImage from "@/components/LgtmImage";
 import { siteMetadata } from "@/lib/constants";
 import { DesignInfo } from "@/types/lgtm-data";
 import { useEffect, useState } from "react";
+import { FieldValues, useForm } from "react-hook-form";
 
 function ImageInfoModal({ theme }: { theme: string }) {
-  const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}`;
+  const { register, handleSubmit, watch } = useForm();
+  const text = watch("text", "LGTM Factory");
+  const imageurl = `/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}`;
+  const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}`;
 
   const [info, setInfo] = useState<DesignInfo | null>(null);
 
@@ -43,10 +48,14 @@ function ImageInfoModal({ theme }: { theme: string }) {
     getDesignInfo(theme);
   }, [theme]);
 
+  const onSubmit = (data: FieldValues) => {
+    console.log("Form submitted with data:", data);
+  };
+
   return (
     <Sheet>
       <SheetTrigger>
-        <LgtmImage theme={theme} className="cursor-pointer" />
+        <LgtmImage url={imageurl} className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent className="space-y-8 p-10">
         <SheetHeader>
@@ -57,22 +66,25 @@ function ImageInfoModal({ theme }: { theme: string }) {
             <li>editableFields: {info?.editableFields?.join(", ")}</li>
           </ul>
         </SheetHeader>
-        <LgtmImage theme={theme} className="max-h-24" />
+        <LgtmImage url={imageurl} className="max-h-24" />
         <div className="flex gap-4">
           <CopyButton url={url} />
           <DownloadButton url={url} />
         </div>
         <ShareButton />
-        <div className="space-y-4">
-          {info?.editableFields?.map((editableFields: string) => {
-            return <Input type="text" placeholder={editableFields} />;
-          })}
-          <SheetFooter>
-            <SheetClose asChild>
-              <Button className="w-full">Save changes</Button>
-            </SheetClose>
-          </SheetFooter>
-        </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          {info?.editableFields?.map((editableField: string, index: number) => (
+            <Input
+              key={index}
+              {...register(editableField)}
+              type="text"
+              placeholder={editableField}
+            />
+          ))}
+          <Button className="w-full" type="submit">
+            submit
+          </Button>
+        </form>
       </SheetContent>
     </Sheet>
   );
