@@ -28,8 +28,7 @@ function ImageInfoModal({ theme }: { theme: string }) {
   const emoji = watch("emoji", "📦");
   const color = watch("color", "#000000");
 
-  const imageurl = `/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}&emoji=${encodeURIComponent(emoji)}&color=${encodeURIComponent(color)}`;
-  const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}&emoji=${encodeURIComponent(emoji)}&color=${encodeURIComponent(color)}`;
+  const url = `/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}&emoji=${encodeURIComponent(emoji)}&color=${encodeURIComponent(color)}`;
 
   const [info, setInfo] = useState<DesignInfo | null>(null);
 
@@ -59,7 +58,7 @@ function ImageInfoModal({ theme }: { theme: string }) {
   return (
     <Sheet>
       <SheetTrigger>
-        <LgtmImage url={imageurl} className="cursor-pointer" />
+        <LgtmImage url={url} className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent className="space-y-8 p-10">
         <SheetHeader>
@@ -70,10 +69,10 @@ function ImageInfoModal({ theme }: { theme: string }) {
             <li>editableFields: {info?.editableFields?.join(", ")}</li>
           </ul>
         </SheetHeader>
-        <LgtmImage url={imageurl} className="max-h-24" />
+        <LgtmImage url={url} className="max-h-24" />
         <div className="flex gap-4">
-          <CopyButton url={url} />
-          <DownloadButton url={url} />
+          <CopyButton url={`${siteMetadata.SITE_URL}${url}`} />
+          <DownloadButton url={`${siteMetadata.SITE_URL}${url}`} />
         </div>
         <ShareButton />
         {info?.editableFields && info.editableFields.length > 0 && (
