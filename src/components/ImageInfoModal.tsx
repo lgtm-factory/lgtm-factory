@@ -76,19 +76,23 @@ function ImageInfoModal({ theme }: { theme: string }) {
           <DownloadButton url={url} />
         </div>
         <ShareButton />
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {info?.editableFields?.map((editableField: string, index: number) => (
-            <Input
-              key={index}
-              {...register(editableField)}
-              type="text"
-              placeholder={editableField}
-            />
-          ))}
-          <Button className="w-full" type="submit">
-            submit
-          </Button>
-        </form>
+        {info?.editableFields && info.editableFields.length > 0 && (
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            {info?.editableFields?.map(
+              (editableField: string, index: number) => (
+                <Input
+                  key={index}
+                  {...register(editableField)}
+                  type="text"
+                  placeholder={editableField}
+                />
+              ),
+            )}
+            <Button className="w-full" type="submit">
+              submit
+            </Button>
+          </form>
+        )}
       </SheetContent>
     </Sheet>
   );
