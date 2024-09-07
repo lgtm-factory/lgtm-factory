@@ -23,9 +23,13 @@ import { FieldValues, useForm } from "react-hook-form";
 
 function ImageInfoModal({ theme }: { theme: string }) {
   const { register, handleSubmit, watch } = useForm();
+
   const text = watch("text", "LGTM Factory");
-  const imageurl = `/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}`;
-  const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}`;
+  const emoji = watch("emoji", "📦");
+  const color = watch("color", "#000000");
+
+  const imageurl = `/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}&emoji=${encodeURIComponent(emoji)}&color=${encodeURIComponent(color)}`;
+  const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}&emoji=${encodeURIComponent(emoji)}&color=${encodeURIComponent(color)}`;
 
   const [info, setInfo] = useState<DesignInfo | null>(null);
 
