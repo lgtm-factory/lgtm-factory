@@ -87,7 +87,7 @@ function ImageInfoModal({ theme }: { theme: string }) {
             <li>editableFields: {info?.editableFields?.join(", ")}</li>
           </ul>
         </SheetHeader>
-        <LgtmImage url={url} className="max-h-24" />
+        <LgtmImage url={url} />
         <div className="flex gap-4">
           <CopyButton url={`${siteMetadata.SITE_URL}${url}`} />
           <DownloadButton url={`${siteMetadata.SITE_URL}${url}`} />
