@@ -3,6 +3,19 @@ import tapeImage from "@/assets/tepe.svg";
 import { siteMetadata } from "@/lib/constants";
 import { Popover, PopoverContent, PopoverTrigger } from "./shadcn-ui/popover";
 
+const CustomLink = (props: { href: string; children: React.ReactNode }) => {
+  return (
+    <a
+      href={props.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:text-foreground"
+    >
+      {props.children}
+    </a>
+  );
+};
+
 function SupportPopover() {
   return (
     <Popover>
@@ -10,7 +23,7 @@ function SupportPopover() {
         <div className="fixed bottom-4 right-4 z-50 hidden w-fit cursor-pointer hover:opacity-80 sm:bottom-8 sm:right-8 sm:block">
           <Image
             src={tapeImage}
-            alt="link to GitHub page"
+            alt="Support link banner"
             className="w-32 sm:w-40"
           />
           <div className="absolute -translate-y-8 translate-x-1 items-center gap-1 font-medium text-white sm:-translate-y-9 sm:translate-x-4">
@@ -30,22 +43,14 @@ function SupportPopover() {
           <p className="text-sm leading-relaxed text-muted-foreground">
             もし役に立つと思った場合は、
             <br />
-            <a
-              href={siteMetadata.GITHUB_URL}
-              target="_blank"
-              className="underline hover:text-foreground"
-            >
+            <CustomLink href={siteMetadata.GITHUB_URL}>
               GitHub ページ
-            </a>
+            </CustomLink>
             で ⭐star を付けてください！
             <br />
-            <a
-              href={siteMetadata.TWITTER_SHARE}
-              target="_blank"
-              className="underline hover:text-foreground"
-            >
+            <CustomLink href={siteMetadata.TWITTER_SHARE}>
               X（Twitter）
-            </a>
+            </CustomLink>
             で共有してください！！
             <br />
           </p>
