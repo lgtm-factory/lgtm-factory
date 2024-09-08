@@ -9,6 +9,7 @@ export default function PageLayout({
   return (
     <>
       <Header />
+      <link rel="mask-icon" href="/icon.svg" color="#3f3f46" />
       <main className="container">{children}</main>
       <SupportPopover />
     </>
