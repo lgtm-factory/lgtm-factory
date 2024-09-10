@@ -19,22 +19,18 @@ import LgtmImage from "@/components/LgtmImage";
 import { siteMetadata } from "@/lib/constants";
 import { DesignInfo } from "@/types/lgtm-data";
 import { useEffect, useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 function ImageInfoModal({ theme }: { theme: string }) {
-  // const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, setValue, getValues } = useForm();
 
-  // const text = watch("text", "LGTM Factory");
-  // const emoji = watch("emoji", "📦");
-  // const color = watch("color", "#000000");
-  const [text, setText] = useState("LGTM Factory");
-  const [emoji, setEmoji] = useState("📦");
-  const [color, setColor] = useState("#000000");
+  const [url, setUrl] = useState(`/api/v1/lgtm-images?theme=${theme}`);
 
-  // const url = `/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}&emoji=${encodeURIComponent(emoji)}&color=${encodeURIComponent(color)}`;
-  const [url, setUrl] = useState(
-    `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}&emoji=${encodeURIComponent(emoji)}&color=${encodeURIComponent(color)}`,
-  );
+  type Inputs = {
+    text?: string;
+    emoji?: string;
+    color?: string;
+  };
 
   const [info, setInfo] = useState<DesignInfo | null>(null);
 
@@ -57,21 +53,16 @@ function ImageInfoModal({ theme }: { theme: string }) {
     getDesignInfo(theme);
   }, [theme]);
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const newUrl = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}&text=${encodeURIComponent(text)}&emoji=${encodeURIComponent(emoji)}&color=${encodeURIComponent(color)}`;
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const queryParams = new URLSearchParams({
+      text: data.text || "LGTM Factory",
+      emoji: data.emoji || "📦",
+      color: data.color || "#000000",
+    });
+
+    const newUrl = `/api/v1/lgtm-images?theme=${theme}&${queryParams}`;
     setUrl(newUrl);
   };
-
-  function getValue(editableFields: string) {
-    if (editableFields == "text") {
-      return text;
-    } else if (editableFields == "emoji") {
-      return emoji;
-    } else {
-      return color;
-    }
-  }
 
   return (
     <Sheet>
@@ -94,21 +85,13 @@ function ImageInfoModal({ theme }: { theme: string }) {
         </div>
         <ShareButton />
         {info?.editableFields && info.editableFields.length > 0 && (
-          <form onSubmit={onSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {info?.editableFields?.map(
               (editableField: string, index: number) => (
                 <Input
-                  key={index}
-                  value={getValue(editableField)}
-                  onChange={(e) => {
-                    if (editableField === "text") {
-                      setText(e.target.value);
-                    } else if (editableField === "emoji") {
-                      setEmoji(e.target.value);
-                    } else if (editableField === "color") {
-                      setColor(e.target.value);
-                    }
-                  }}
+                  key={editableField}
+                  defaultValue={getValues(editableField)}
+                  {...register(editableField)}
                   type="text"
                   placeholder={editableField}
                 />
