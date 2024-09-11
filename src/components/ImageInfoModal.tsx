@@ -72,7 +72,7 @@ function ImageInfoModal({ theme }: { theme: string }) {
           <Image
             width={1200}
             height={630}
-            src={`url`}
+            src={url}
             alt={theme}
             className="max-h-full max-w-full object-contain"
           />
