@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import NewLGTMButton from "@/components/NewLGTMButton";
+import SupportPopover from "@/components/SupportPopover";
 
 export default function PageLayout({
   children,
@@ -10,7 +10,7 @@ export default function PageLayout({
     <>
       <Header />
       <main className="container">{children}</main>
-      <NewLGTMButton />
+      <SupportPopover />
     </>
   );
 }

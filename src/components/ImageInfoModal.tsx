@@ -20,6 +20,7 @@ import { siteMetadata } from "@/lib/constants";
 import { DesignInfo } from "@/types/lgtm-data";
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Image from "next/image";
 
 function ImageInfoModal({ theme }: { theme: string }) {
   const { register, handleSubmit, setValue, getValues } = useForm();
@@ -67,7 +68,15 @@ function ImageInfoModal({ theme }: { theme: string }) {
   return (
     <Sheet>
       <SheetTrigger>
-        <LgtmImage url={url} className="cursor-pointer" />
+        <div className="flex h-full w-full cursor-pointer items-center hover:opacity-80 sm:aspect-square">
+          <Image
+            width={1200}
+            height={630}
+            src={`url`}
+            alt={theme}
+            className="max-h-full max-w-full object-contain"
+          />
+        </div>
       </SheetTrigger>
       <SheetContent className="space-y-8 p-10">
         <SheetHeader>

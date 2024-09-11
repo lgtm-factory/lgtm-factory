@@ -15,7 +15,7 @@ async function MainSection() {
 
   return (
     <section>
-      <div className="mx-auto grid w-fit gap-8 sm:grid-cols-2 sm:gap-14 lg:grid-cols-3">
+      <div className="mx-auto grid w-fit gap-x-3 gap-y-6 px-16 sm:grid-cols-2 sm:px-0 lg:grid-cols-4">
         {themes?.map((theme: string) => {
           return <ImageInfoModal theme={theme} key={theme} />;
         })}
