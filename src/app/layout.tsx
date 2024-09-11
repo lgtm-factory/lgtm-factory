@@ -60,6 +60,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="mask-icon" href="/icon.svg" color="#3f3f46" />
+      </head>
       <body
         className={cn(
           ibmMono.variable,
