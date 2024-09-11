@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Noto_Sans_JP, Monoton } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/shadcn-utils";
 import { siteMetadata } from "@/lib/constants";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.SITE_URL),
@@ -60,9 +61,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <head>
+      <Head>
         <link rel="mask-icon" href="/icon.svg" color="#3f3f46" />
-      </head>
+      </Head>
       <body
         className={cn(
           ibmMono.variable,
