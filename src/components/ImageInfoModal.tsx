@@ -11,6 +11,7 @@ import {
 } from "@/components/shadcn-ui/sheet";
 import { Input } from "@/components/shadcn-ui/input";
 import { Button } from "@/components/shadcn-ui/button";
+import { FormField } from "@/components/shadcn-ui/form";
 import CopyButton from "@/components/CopyButton";
 import DownloadButton from "@/components/DownloadButton";
 import ShareButton from "@/components/ShareButton";
@@ -18,10 +19,19 @@ import LgtmImage from "@/components/LgtmImage";
 import { siteMetadata } from "@/lib/constants";
 import { DesignInfo } from "@/types/lgtm-data";
 import { useEffect, useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
 
 function ImageInfoModal({ theme }: { theme: string }) {
-  const url = `${siteMetadata.SITE_URL}/api/v1/lgtm-images?theme=${theme}`;
+  const { register, handleSubmit, setValue, getValues } = useForm();
+
+  const [url, setUrl] = useState(`/api/v1/lgtm-images?theme=${theme}`);
+
+  type Inputs = {
+    text?: string;
+    emoji?: string;
+    color?: string;
+  };
 
   const [info, setInfo] = useState<DesignInfo | null>(null);
 
@@ -44,6 +54,17 @@ function ImageInfoModal({ theme }: { theme: string }) {
     getDesignInfo(theme);
   }, [theme]);
 
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const queryParams = new URLSearchParams({
+      text: data.text || "LGTM Factory",
+      emoji: data.emoji || "📦",
+      color: data.color || "#000000",
+    });
+
+    const newUrl = `/api/v1/lgtm-images?theme=${theme}&${queryParams}`;
+    setUrl(newUrl);
+  };
+
   return (
     <Sheet>
       <SheetTrigger>
@@ -51,7 +72,7 @@ function ImageInfoModal({ theme }: { theme: string }) {
           <Image
             width={1200}
             height={630}
-            src={`/api/v1/lgtm-images?theme=${theme}`}
+            src={`url`}
             alt={theme}
             className="max-h-full max-w-full object-contain"
           />
@@ -66,20 +87,30 @@ function ImageInfoModal({ theme }: { theme: string }) {
             <li>editableFields: {info?.editableFields?.join(", ")}</li>
           </ul>
         </SheetHeader>
-        <LgtmImage theme={theme} />
+        <LgtmImage url={url} />
         <div className="flex gap-4">
-          <CopyButton url={url} />
-          <DownloadButton url={url} />
+          <CopyButton url={`${siteMetadata.SITE_URL}${url}`} />
+          <DownloadButton url={`${siteMetadata.SITE_URL}${url}`} />
         </div>
         <ShareButton />
-        <div className="space-y-4">
-          <Input type="text" placeholder="Text" />
-          <SheetFooter>
-            <SheetClose asChild>
-              <Button className="w-full">Save changes</Button>
-            </SheetClose>
-          </SheetFooter>
-        </div>
+        {info?.editableFields && info.editableFields.length > 0 && (
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            {info?.editableFields?.map(
+              (editableField: string, index: number) => (
+                <Input
+                  key={editableField}
+                  defaultValue={getValues(editableField)}
+                  {...register(editableField)}
+                  type="text"
+                  placeholder={editableField}
+                />
+              ),
+            )}
+            <Button className="w-full" type="submit">
+              submit
+            </Button>
+          </form>
+        )}
       </SheetContent>
     </Sheet>
   );
