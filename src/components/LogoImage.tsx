@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logoImage from "@/assets/logo.svg";
+import logoImage from "../../public/logo.svg";
 import { cn } from "@/lib/shadcn-utils";
 
 export default function LogoImage({ className }: { className?: string }) {
@@ -8,7 +8,7 @@ export default function LogoImage({ className }: { className?: string }) {
       <Image
         src={logoImage}
         alt="LGTM logo image"
-        className={cn("w-10 -scale-x-100", className)}
+        className={cn("w-10", className)}
       />
     </span>
   );

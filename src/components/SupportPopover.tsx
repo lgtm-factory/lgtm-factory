@@ -1,5 +1,5 @@
 import Image from "next/image";
-import tapeImage from "@/assets/tepe.svg";
+import tapeImage from "../../public/tape.svg";
 import { siteMetadata } from "@/lib/constants";
 import { Popover, PopoverContent, PopoverTrigger } from "./shadcn-ui/popover";
 
