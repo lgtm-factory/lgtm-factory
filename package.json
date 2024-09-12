@@ -37,7 +37,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-next-on-pages": "^1.13.2",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",
     "postcss": "^8",
