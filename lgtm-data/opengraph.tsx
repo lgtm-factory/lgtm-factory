@@ -38,7 +38,7 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
       <div tw="w-[323px] h-[74px] bg-black rounded-full mt-[55px]" />
       <div tw="flex mt-[35px]">
         <img
-          src={`${siteMetadata.SITE_URL}/icon.svg`}
+          src={`${siteMetadata.SITE_URL}/logo.svg`}
           alt="logo"
           width={512}
           tw="mr-[56px] mt-[21px]"

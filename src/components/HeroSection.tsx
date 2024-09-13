@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heroImage from "@/assets/logo.svg";
+import heroImage from "../../public/logo.svg";
 
 export default function HeroSection() {
   return (
@@ -17,7 +17,7 @@ export default function HeroSection() {
         <Image
           src={heroImage}
           alt="Hero image"
-          className="-z-10 w-[20vw] -translate-y-0.5 opacity-75"
+          className="-z-10 w-[20vw] -translate-y-0.5 -scale-x-100 opacity-75"
         />
       </div>
     </section>

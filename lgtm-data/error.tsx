@@ -33,15 +33,7 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   };
 
   const element = (
-    <div tw="flex h-full w-full flex-col items-center bg-white">
-      <div tw="flex h-screen absolute">
-        <img
-          src={`${siteMetadata.SITE_URL}/cardboard-light.png`}
-          alt="paper-background"
-          width={1200}
-          height={630}
-        />
-      </div>
+    <div tw="flex h-full w-full flex-col items-center bg-[#E4CDA0]">
       <div tw="absolute flex right-[117px]">
         <svg
           width="71"
