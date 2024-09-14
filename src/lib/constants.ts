@@ -7,9 +7,16 @@ interface SiteMetadata {
   TWITTER_SHARE: string;
 }
 
+const SITE_URLS = {
+  development: "http://localhost:3000",
+  production: "https://lgtm-factory.pages.dev",
+  test: "http://localhost:3000",
+};
+
+const siteUrl = SITE_URLS[process.env.NODE_ENV];
+
 export const siteMetadata: SiteMetadata = {
-  SITE_URL:
-    process.env.NEXT_PUBLIC_SITE_URL || "https://lgtm-factory.pages.dev",
+  SITE_URL: siteUrl,
   SITE_NAME: "LGTM Factory",
   SITE_DESC:
     "HTML/CSSから生成されたフリーLGTM画像のコレクション | Free & Open Source LGTM Image Generator 📦",
