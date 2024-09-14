@@ -32,6 +32,13 @@ export const metadata: Metadata = {
     title: siteMetadata.SITE_NAME,
     description: siteMetadata.SITE_DESC,
   },
+  icons: {
+    other: {
+      rel: "mask-icon",
+      url: "/icon.svg",
+      color: "#3f3f46",
+    },
+  },
 };
 
 const ibmMono = IBM_Plex_Mono({
@@ -61,9 +68,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <Head>
-        <link rel="mask-icon" href="/icon.svg" color="#3f3f46" />
-      </Head>
       <body
         className={cn(
           ibmMono.variable,
