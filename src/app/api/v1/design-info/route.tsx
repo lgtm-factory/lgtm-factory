@@ -20,8 +20,8 @@ export async function GET(request: NextRequest) {
   try {
     const getLgtmData = await importLgtmDataModule(theme);
     const { designInfo } = await getLgtmData(inputData);
-    return NextResponse.json({ designInfo: designInfo }, { status: 200 });
+    return NextResponse.json(designInfo, { status: 200 });
   } catch (_) {
-    return NextResponse.json({ designInfo: null }, { status: 400 });
+    return NextResponse.json(null, { status: 400 });
   }
 }
