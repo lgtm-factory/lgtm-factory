@@ -12,7 +12,7 @@ export default function PageLayout({
       <Header />
       <main className="container">{children}</main>
       <SupportPopover />
-      <Toaster />
+      <Toaster className="left-2" />
     </>
   );
 }
