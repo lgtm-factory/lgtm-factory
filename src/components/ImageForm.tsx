@@ -1,62 +1,79 @@
 "use client";
 
 import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { siteMetadata } from "@/lib/constants";
-import { DesignInfo } from "@/types/lgtm-data";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { DesignInfo, InputData } from "@/types/lgtm-data";
 import { Button } from "./shadcn-ui/button";
 import { Input } from "./shadcn-ui/input";
-import LgtmImage from "./LgtmImage";
 import CopyButton from "./CopyButton";
 import DownloadButton from "./DownloadButton";
-import ShareButton from "./ShareButton";
+import { ArrowUp } from "lucide-react";
+import Image from "next/image";
+import { DEFAULT_VALUES } from "@/app/api/v1/lgtm-images/_constants";
 
-function ImageForm({
-  theme,
-  info,
-}: {
+type ImageFormProps = {
   theme: string;
-  info: DesignInfo | null;
-}) {
-  const [url, setUrl] = useState(`/api/v1/lgtm-images?theme=${theme}`);
-  const { register, handleSubmit, getValues } = useForm();
-  type Inputs = {
-    text?: string;
-    emoji?: string;
-    color?: string;
-  };
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  info: DesignInfo;
+};
+
+function ImageForm(props: ImageFormProps) {
+  const [url, setUrl] = useState(`/api/v1/lgtm-images?theme=${props.theme}`);
+  const { register, handleSubmit } = useForm<InputData>();
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const queryParams = new URLSearchParams({
-      text: data.text || "LGTM Factory",
-      emoji: data.emoji || "📦",
-      color: data.color || "#000000",
+      text: data.text || DEFAULT_VALUES.text,
+      emoji: data.emoji || DEFAULT_VALUES.emoji,
+      color: data.color || DEFAULT_VALUES.color,
     });
 
-    const newUrl = `/api/v1/lgtm-images?theme=${theme}&${queryParams}`;
+    const newUrl = `/api/v1/lgtm-images?theme=${props.theme}&${queryParams}`;
     setUrl(newUrl);
   };
   return (
     <>
-      <LgtmImage url={url} />
-      <div className="flex gap-4">
-        <CopyButton url={`${siteMetadata.SITE_URL}${url}`} />
-        <DownloadButton url={`${siteMetadata.SITE_URL}${url}`} />
+      <div className="flex items-center gap-4 px-4">
+        <CopyButton url={url} variant="button" />
+        <DownloadButton url={url} />
       </div>
-      <ShareButton />
-      {info?.editableFields && info.editableFields.length > 0 && (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {info?.editableFields?.map((editableField: string) => (
-            <Input
-              key={editableField}
-              defaultValue={getValues(editableField)}
-              {...register(editableField)}
-              type="text"
-              placeholder={editableField}
-            />
+      <div className="relative flex h-[360px] w-full bg-muted p-0">
+        <Image
+          width={1200}
+          height={630}
+          src={url}
+          alt={props.theme}
+          className="max-h-full max-w-full object-contain"
+        />
+        <CopyButton url={url} variant="icon" />
+      </div>
+      <p className="mr-4 text-end text-sm text-muted-foreground">
+        Contribute by @{props.info?.author}
+      </p>
+
+      {props.info?.editableFields && props.info.editableFields.length > 0 && (
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="relative space-y-4 px-20"
+        >
+          <p className="text-lg">Generate with:</p>
+          {props.info?.editableFields?.map((editableField) => (
+            <div className="relative" key={editableField}>
+              <Input
+                defaultValue={DEFAULT_VALUES[editableField as keyof InputData]}
+                {...register(editableField as keyof InputData)}
+                type="text"
+                placeholder={editableField}
+                className="h-16 border-none pr-10 text-lg shadow-lg"
+              />
+              <Button
+                className="absolute right-0 top-0 flex h-16 w-16 items-center border border-gray-300 hover:bg-gray-200"
+                type="submit"
+                variant="secondary"
+              >
+                <ArrowUp className="h-6 w-6" />
+              </Button>
+            </div>
           ))}
-          <Button className="w-full" type="submit">
-            submit
-          </Button>
         </form>
       )}
     </>

@@ -28,14 +28,10 @@ async function ImageInfoModal({ theme }: { theme: string }) {
           />
         </div>
       </SheetTrigger>
-      <SheetContent className="space-y-8 p-10">
-        <SheetHeader>
-          <SheetTitle>{theme}</SheetTitle>
-          <ul>
-            <li>desc: {info?.description}</li>
-            <li>author: {info?.author}</li>
-            <li>editableFields: {info?.editableFields?.join(", ")}</li>
-          </ul>
+      <SheetContent className="space-y-4 p-0 pt-8">
+        <SheetHeader className="space-y-2 px-4">
+          <SheetTitle className="text-2xl font-semibold">{theme}</SheetTitle>
+          <p className="text-sm">{info?.description}</p>
         </SheetHeader>
         <ImageForm theme={theme} info={info} />
       </SheetContent>
