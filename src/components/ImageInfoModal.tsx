@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { siteMetadata } from "@/lib/constants";
 import {
   Sheet,
   SheetContent,
@@ -5,8 +7,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/shadcn-ui/sheet";
-import { siteMetadata } from "@/lib/constants";
-import Image from "next/image";
 import ImageForm from "./ImageForm";
 
 async function ImageInfoModal({ theme }: { theme: string }) {
