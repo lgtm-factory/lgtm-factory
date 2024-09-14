@@ -3,7 +3,6 @@ import { IBM_Plex_Mono, Noto_Sans_JP, Monoton } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/shadcn-utils";
 import { siteMetadata } from "@/lib/constants";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.SITE_URL),
