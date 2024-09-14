@@ -6,12 +6,9 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetFooter,
-  SheetClose,
 } from "@/components/shadcn-ui/sheet";
 import { Input } from "@/components/shadcn-ui/input";
 import { Button } from "@/components/shadcn-ui/button";
-import { FormField } from "@/components/shadcn-ui/form";
 import CopyButton from "@/components/CopyButton";
 import DownloadButton from "@/components/DownloadButton";
 import ShareButton from "@/components/ShareButton";
@@ -23,7 +20,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
 
 function ImageInfoModal({ theme }: { theme: string }) {
-  const { register, handleSubmit, setValue, getValues } = useForm();
+  const { register, handleSubmit, getValues } = useForm();
 
   const [url, setUrl] = useState(`/api/v1/lgtm-images?theme=${theme}`);
 
@@ -95,17 +92,15 @@ function ImageInfoModal({ theme }: { theme: string }) {
         <ShareButton />
         {info?.editableFields && info.editableFields.length > 0 && (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            {info?.editableFields?.map(
-              (editableField: string, index: number) => (
-                <Input
-                  key={editableField}
-                  defaultValue={getValues(editableField)}
-                  {...register(editableField)}
-                  type="text"
-                  placeholder={editableField}
-                />
-              ),
-            )}
+            {info?.editableFields?.map((editableField: string) => (
+              <Input
+                key={editableField}
+                defaultValue={getValues(editableField)}
+                {...register(editableField)}
+                type="text"
+                placeholder={editableField}
+              />
+            ))}
             <Button className="w-full" type="submit">
               submit
             </Button>
