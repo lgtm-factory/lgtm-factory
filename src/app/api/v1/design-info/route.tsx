@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const theme = searchParams.get("theme");
 
   if (!theme) {
-    return NextResponse.json({ designInfo: null }, { status: 400 });
+    return NextResponse.json(null, { status: 400 });
   }
 
   const inputData = {
