@@ -88,7 +88,7 @@ GitHub プロフィールや、GitHub上のドキュメントの装飾など。�
 
 どうぞ！！<br>
 
-[![](https://add-lgtm-contents.lgtm-factory.pages.dev/api/v1/lgtm-images?theme=iced-coffee&text=Have%20a%20nice%20day%20:）)](https://lgtm-factory.pages.dev)
+[![](https://lgtm-factory.pages.dev/api/v1/lgtm-images?theme=iced-coffee&text=Have%20a%20nice%20day%20:）)](https://lgtm-factory.pages.dev)
 
 </p>
 </details>

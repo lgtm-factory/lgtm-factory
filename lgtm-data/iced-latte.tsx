@@ -6,7 +6,7 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
     author: "kazzyfrog",
     description:
-      "淹れたてのアイスコーヒーです。一言メッセージを書いて差し入れできます:)",
+      "淹れたてのアイスカフェラテです。一言メッセージを書いて差し入れできます:)",
     editableFields: ["text"],
   };
 

@@ -10,7 +10,7 @@ export default function HeroSection() {
           <span className="ml-1 text-3xl sm:text-[calc(8vw*4/7)]">Factory</span>
         </h1>
         <p className="text-sm font-medium sm:text-[1.6vw]">
-          LGTM make code review more fun! 👍
+          Free & Open-Source LGTM Image Generator 📦
         </p>
       </div>
       <div className="relative hidden md:block">
