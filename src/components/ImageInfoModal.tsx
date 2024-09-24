@@ -19,9 +19,6 @@ async function ImageInfoModal(props: ImageInfoModalProps) {
     `${siteMetadata.SITE_URL}/api/v1/design-info?theme=${props.theme}`,
   );
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch design info: ${response.statusText}`);
-  }
   const designInfo: DesignInfo = await response.json();
 
   return (
