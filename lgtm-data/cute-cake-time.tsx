@@ -41,7 +41,6 @@ async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
           fill="#D55816"
         />
       </svg>
-      ;
     </div>
   );
 
