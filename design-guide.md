@@ -42,15 +42,6 @@ LGTM Factory への貢献（コントリビューション）を始めるには�
 
 <br>
 
-## `lgtm-data`ディレクトリについて
-
-あなたが今閲覧している、このドキュメントは、`lgtm-data`ディレクトリ内にあります。<br>
-このディレクトリには、全ての LGTM 画像のデザインデータが、格納されています。
-
-なので、`lgtm-data`ディレクトリ内に、新たなファイルを追加することで、自動で Web サイト上にもデザインが追加されます！
-
-<br>
-
 ## 画像生成の仕組みについて
 
 （もし興味がなければ、このセクションは飛ばしてください😎）
@@ -156,7 +147,7 @@ LGTM Factory に、デザインテーマを追加する方法は、２通りあ�
 
 ### 3.新たなファイルを作成する
 
-次に、追加するデザインの内容を記載するファイルを作成します！
+次に、**`lgtm-data`ディレクトリ**に、追加するデザインの内容を記載するファイルを作成します！
 
 以下のようなファイルを、新たに作成するだけです 👍<br>
 例：`colorful-circle-emoji.tsx`
@@ -191,7 +182,7 @@ import { ImageResponseOptions } from "next/server";
 
 async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
-    author: "@username",
+    author: "username",
     description: "デザインの簡潔な紹介文",
     editableFields: ["emoji"],
   };
@@ -253,7 +244,7 @@ import { ImageResponseOptions } from "next/server";
 
 async function getLgtmData(inputData: InputData): Promise<GetLgtmDataResult> {
   const designInfo = {
-    author: "@username",
+    author: "username",
     description: "デザインの簡潔な紹介文",
     editableFields: ["emoji"],
   };
@@ -358,12 +349,18 @@ Webサイト上に掲載するため、必要なデザイン情報は、以下�
   ```jsx
   import getFontData from "@/utils/google-font";
   ~~
-  fonts: [
+  const options: ImageResponseOptions = {
+    width: 1200,
+    height: 630,
+    emoji: "twemoji",
+    fonts: [
       {
         name: "Inter",
         data: await getFontData("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700"),
       },
     ],
+  };
+  ~~
   ```
 - `Google Fonts` のURLを取得する手順は、次の通りです：
 
