@@ -2,11 +2,13 @@ import fs from "fs/promises";
 import path from "path";
 import ImageInfoModal from "./ImageInfoModal";
 
+const OG_FILE = "opengraph";
+
 async function getFileNames() {
   const fileNames = await fs.readdir("lgtm-data");
   const themes = fileNames
     .map((file) => path.parse(file).name)
-    .filter((theme) => theme !== "error");
+    .filter((theme) => theme !== "error" && !theme.includes(OG_FILE));
   return themes;
 }
 
