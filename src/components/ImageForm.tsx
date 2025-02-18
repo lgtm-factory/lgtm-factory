@@ -61,10 +61,11 @@ function ImageForm(props: ImageFormProps) {
               <Input
                 defaultValue={DEFAULT_VALUES[editableField as keyof InputData]}
                 {...register(editableField as keyof InputData)}
-                type="text"
+                type={editableField === "color" ? "color" : "text"}
                 placeholder={editableField}
                 className="h-16 border-none pr-10 text-lg shadow-lg"
               />
+
               <Button
                 className="absolute right-0 top-0 flex h-16 w-16 items-center border border-gray-300 hover:bg-gray-200"
                 type="submit"
